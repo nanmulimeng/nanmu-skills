@@ -1,57 +1,75 @@
 ---
 name: coff0xc-skill-router
-description: "Coff0xc skill router and auto-trigger fallback. Use when a user asks for any Coff0xc capability, asks which coffee/coff0xc skill to use, says they are unsure, or when a specific skill does not auto-trigger. Routes Chinese/English requests for: software engineering, Python, JavaScript, TypeScript, Go, Rust, Java, C/C++, Shell, testing, Git, Agent, RAG, LLM, Prompt, API, database, CLI, UI, PDF, document, translation, research diagram, draw.io, diagrams.net, paper figure, algorithm architecture, code audit, Web security, API security, GraphQL, OAuth, cloud, AWS, Azure, GCP, Docker, Kubernetes, CI/CD, supply chain, secret scanning, SOC, SIEM, YARA, Sigma, incident response, malware, forensics, CVE, vulnerability management, AD, Kerberos, IAM, Zero Trust, red team, authorized assessment, reverse engineering, binary, mobile, APK, firmware, IoT, ICS, blockchain, smart contract, compliance, threat modeling, purple team, honeypot, TLS, DNS, network protocol, wireless. 中文触发：代码、开发、测试、重构、脚本、Agent、智能体、RAG、向量数据库、提示词、接口、数据库、命令行、前端、界面、PDF、文档、翻译、科研绘图、论文配图、算法架构图、模型结构图、draw.io、diagrams.net、代码审计、Web安全、云安全、容器、K8s、供应链、密钥、检测、应急、取证、漏洞、CVE、AD域、身份、零信任、红队、授权评估、逆向、二进制、移动安全、固件、工控、区块链、合约审计、合规、威胁建模、紫队、蜜罐、网络协议、无线安全、不确定用哪个、选择 skill、帮我分流、同时涉及多个领域。"
+description: "Coff0xc 技能集索引与参考。列出全部 17 个 Coff0xc 综合技能的覆盖范围、来源和触发关键词。当用户明确询问 Coff0xc/coffee-skill 有哪些技能、某个 Coff0xc 技能覆盖什么内容、coff0xc 技能列表、Coff0xc 安全技能有哪些时使用。注意：全局路由请使用 skill-router；本索引仅用于查阅 Coff0xc 技能信息，不参与全局路由决策。中文触发：coff0xc 技能列表、coffee skill 有哪些、Coff0xc 包含什么、coff0xc 覆盖。英文触发：Coff0xc skill list、what coff0xc skills、coffee skill reference、list coff0xc capabilities。手动调用：使用 coff0xc-skill-router 查看技能列表。"
 ---
 
-# coff0xc-skill-router
+# coff0xc-skill-router — Coff0xc 技能集索引
 
 ## 目标
-作为自动触发兜底入口。当前端模型没有自动选择具体 Coff0xc skill 时，先用本路由表判断主题，再读取或按对应 skill 的工作流执行。
 
-## 为什么需要 Router
-- 多个客户端只用 `name` 和 `description` 参与触发，正文内容不会帮助首次触发。
-- 中文请求、缩写、英文工具名和安全领域黑话容易导致具体 skill 漏触发。
-- 合并后的大 skill 数量更少，但每个主题覆盖面更广，需要一个触发词密集的兜底入口。
+作为 Coff0xc 技能集的索引和参考，列出全部 17 个综合技能。**本文件是 Coff0xc 技能列表，不是全局路由器。** 全局跨域路由请使用 `skill-router`。
+
+## 与 skill-router 的关系
+
+| | skill-router | coff0xc-skill-router |
+|---|---|---|
+| **角色** | 全局唯一路由器 | Coff0xc 技能索引 |
+| **覆盖** | 全部 66 个 skill | 17 个 Coff0xc skill |
+| **触发** | "不确定用哪个" / "帮我分流" | "coff0xc 有哪些技能" |
+| **功能** | 分析需求 → 推荐技能 | 列出 Coff0xc 技能详情 |
+
+## 为什么需要索引
+
+- Coff0xc 的 17 个技能是合并自 87 个源技能的综合技能，每个覆盖范围很广
+- 用户可能不熟悉 Coff0xc 技能名和触发关键词
+- 中文请求、缩写、英文工具名容易漏触发具体技能
+- 当用户想了解 Coff0xc 有什么可用技能时，本索引用
 
 ## 路由规则
-1. 如果另一个更具体的 Coff0xc skill 已经触发，优先执行具体 skill，本 router 只用于确认覆盖和边界。
-2. 如果只有本 router 触发，按下表选择最匹配的 skill；若本地文件可读，读取该 skill 的 `SKILL.md` 后执行。
-3. 如果请求涉及安全、生产、凭据、远程写入、删除或付费动作，先套用目标 skill 的硬门禁。
-4. 如果无法确定路由，给出 2-3 个候选 skill 和最小澄清问题；不要凭空执行高风险动作。
 
-## 路由表
-| 目标 skill | 常见别名/来源词 | 触发说明 |
+1. 如果另一个更具体的 Coff0xc skill 已经触发，优先执行具体 skill
+2. 如果用户不确定用哪个 Coff0xc skill，建议先用 `skill-router` 分流，本索引提供 Coff0xc 技能详情
+3. 如果请求涉及安全、生产、凭据、远程写入、删除或付费动作，套用目标 skill 的硬门禁
+4. 如果无法确定路由，给出 2-3 个候选 Coff0xc skill 和最小澄清问题
+
+## Coff0xc 技能列表
+
+| 目标 skill | 合并来源 | 覆盖范围 |
 | --- | --- | --- |
-| coff0xc-software-engineering | c-cpp-dev, code-simplifier, git-workflow, go-dev, java-dev, js-ts-dev, ... | 全面软件工程、语言开发、测试、重构、脚本、Git 和工程质量工作流。触发：Python、JavaScript、TypeScript、Go、Rust、Java、C/C++、Shell、bugfix、feature、测试、重构、构建、脚本、Git、本地工程化。 |
-| coff0xc-ai-agent-rag | ai-agent-dev, ai-orchestrator, deep-thinking | 全面 AI Agent、RAG、Prompt、LLM 应用、多模型协作、评测、观测和成本控制工作流。触发：Agent、RAG、embedding、向量数据库、Prompt、LangChain、AutoGen、工具调用、多模型编排、代码审计协作、视觉分析、评测、缓存、记忆、失败恢复。 |
-| coff0xc-api-data-platform | api-design, database, cli-creator | 全面 API、数据库、数据平台、CLI、SDK 和接口契约工程工作流。触发：REST、GraphQL、OpenAPI、SQL、数据库、迁移、CLI、SDK、分页、认证、错误码、JSON 输出、数据模型、ETL、数据质量。 |
-| coff0xc-ui-doc-output | UIdesign, pdf, quick-translate | 全面 UI 设计、前端体验、PDF/文档处理、报告交付和技术翻译工作流。触发：UI、前端、dashboard、组件、页面、视觉验证、PDF、Word、文档、报告、翻译、润色、截图、版式、可访问性。 |
-| coff0xc-secure-code-appsec | api-discovery, api-security-test, backdoor-detector, browser-security, code-audit, graphql-pentest, ... | 全面代码安全审计、Web/API/GraphQL/OAuth/浏览器/SPA/LLM 安全、后门检测和授权应用安全验证工作流。触发：代码审计、危险函数、source/sink、污点分析、Web 安全、API 安全、GraphQL、OAuth、CSP、CORS、Cookie、Prompt 注入、越权、SSRF、XSS、SQLi、后门、Webshell。 |
-| coff0xc-cloud-devsecops | cloud-security, container-security, devsecops, docker-k8s, secrets-management, serverless-security, ... | 全面云安全、容器/Kubernetes、Serverless、DevSecOps、供应链、CI/CD 和密钥管理工作流。触发：AWS、Azure、GCP、IAM、S3/Blob/GCS、Docker、K8s、镜像、Serverless、CI/CD、SAST、DAST、SCA、SBOM、secret scanning、IaC、Terraform、GitHub Actions。 |
-| coff0xc-detection-response | detection-engineering, email-security, forensics-analysis, incident-response, malware-analysis, osint, ... | 全面 SOC、安全运营、检测工程、威胁狩猎、威胁情报、邮件安全、恶意软件分析、取证和应急响应工作流。触发：SIEM、Sigma、YARA、IOC、日志、告警、EDR、IR、forensics、malware、phishing、timeline、威胁情报、狩猎、误报。 |
-| coff0xc-vulnerability-lifecycle | bug-bounty, pentest-report, red-team-poc, vuln-research, vulnerability-management | 全面漏洞研究、CVE/补丁分析、漏洞管理、风险优先级、报告、授权验证和修复跟踪工作流。触发：CVE、漏洞原理、补丁对比、advisory、CVSS、EPSS、KEV、PoC 验证、漏洞报告、bug bounty、pentest report、修复跟踪。 |
-| coff0xc-identity-zero-trust | ad-pentest, credential-access, identity-security, lateral-movement, privilege-escalation, zero-trust | 全面身份安全、零信任、AD/Kerberos、IAM、权限、凭证风险、横向移动防御和访问控制审查工作流。触发：IAM、SSO、MFA、AD、Active Directory、Kerberos、BloodHound、权限、凭证、服务账号、提权、横向移动、Zero Trust、PAM。 |
-| coff0xc-authorized-assessment | attack-chain-orchestrator, autoredteam-orchestrator, c2-framework, cdn-bypass, data-exfiltration, evasion-toolkit, ... | 全面授权安全评估、攻击面梳理、红队计划防御化、演练边界、控制有效性验证和报告工作流。触发：recon、fingerprint、attack chain、full pentest、red team、C2、evasion、phishing simulation、post-exploitation、data exfiltration、CDN/WAF、proxy、social engineering、ROE。 |
-| coff0xc-binary-mobile-iot | binary-exploit, crypto-security, ctf, ics-scada, iot-security, kernel-security, ... | 全面二进制/逆向/内核/移动/IoT/ICS/CTF/密码学安全分析工作流。触发：reverse engineering、PWN、kernel、APK、IPA、Frida、firmware、UART、JTAG、SPI、SCADA、PLC、Modbus、BLE、RF、CTF、crypto review、constant-time。 |
-| coff0xc-blockchain-security | blockchain-security | 全面区块链、智能合约、DeFi、Web3、跨链、代币和多链安全审计工作流。触发：Solidity、EVM、Solana、Cosmos、Substrate、Cairo/StarkNet、TON、Algorand、DeFi、AMM、oracle、bridge、token、NFT、智能合约审计、Foundry、Hardhat、Slither。 |
-| coff0xc-compliance-architecture | compliance-audit, data-security, security-architecture | 全面安全架构、威胁建模、合规审计、数据安全、DLP、隐私、安全基线和成熟度评估工作流。触发：安全架构、STRIDE、威胁建模、等保、PCI-DSS、GDPR、ISO27001、SOC2、CIS、NIST、数据分类、脱敏、DLP、隐私、基线、控制矩阵。 |
-| coff0xc-purple-deception | honeypot, purple-team | 全面紫队演练、ATT&CK 映射、控制验证、检测能力评估、蜜罐/欺骗防御和安全运营改进工作流。触发：purple team、ATT&CK、红蓝对抗、control validation、detection coverage、emulation plan、honeypot、deception、decoy、canary、检测有效性。 |
-| coff0xc-network-protocol-security | network-protocol, wireless-security | 全面网络协议、TLS/DNS/TCP/UDP/QUIC/HTTP、无线/RF/蓝牙、协议日志分析、通信安全和形式化协议建模工作流。触发：network protocol、TLS、DNS、HTTP/2、HTTP/3、QUIC、TCP、UDP、WiFi、Bluetooth、BLE、RF、packet、pcap、Wireshark、协议分析、安全通信、ProVerif、Mermaid protocol。 |
+| coff0xc-software-engineering | c-cpp-dev, code-simplifier, git-workflow, go-dev, java-dev, js-ts-dev, python-dev, rust-dev, shell-scripting, testing | 全面软件工程：Python/JS/TS/Go/Rust/Java/C++/Shell、bugfix/feature、测试/重构、Git协作、构建质量 |
+| coff0xc-ai-agent-rag | ai-agent-dev, ai-orchestrator, deep-thinking | AI Agent/RAG：Agent架构、工具调用、记忆系统、RAG管线、Prompt工程、多模型协作、评测/观测/成本 |
+| coff0xc-api-data-platform | api-design, database, cli-creator | API/数据平台：REST/GraphQL/OpenAPI、数据库schema/迁移、CLI/SDK、分页/认证/错误码、ETL/数据质量 |
+| coff0xc-ui-doc-output | UIdesign, pdf, quick-translate | UI/文档输出：产品UI设计系统、交互状态、PDF/Word/PPT文档处理、报告交付、翻译润色 |
+| coff0xc-research-drawio-diagram | new workflow | 科研绘图：draw.io/diagrams.net、论文配图、算法架构图、模型结构图、可编辑.drawio生成 |
+| coff0xc-secure-code-appsec | api-discovery, api-security-test, backdoor-detector, browser-security, code-audit, graphql-pentest, llm-red-teaming, oauth-security, spa-pentest, web-pentest | 代码/应用安全：代码审计、source/sink污点分析、Web/API/GraphQL/OAuth安全、LLM安全、后门检测、SPA安全 |
+| coff0xc-cloud-devsecops | cloud-security, container-security, devsecops, docker-k8s, secrets-management, serverless-security, supply-chain-security | 云/DevSecOps：AWS/Azure/GCP、Docker/K8s、Serverless、CI/CD、供应链安全、IaC/Terraform、密钥管理 |
+| coff0xc-detection-response | detection-engineering, email-security, forensics-analysis, incident-response, malware-analysis, osint, soc-operations, threat-hunting, threat-intelligence | 检测/响应：SIEM/Sigma/YARA、SOC运营、威胁狩猎/情报、应急响应、取证、恶意软件分析、邮件安全 |
+| coff0xc-vulnerability-lifecycle | bug-bounty, pentest-report, red-team-poc, vuln-research, vulnerability-management | 漏洞生命周期：CVE研究、补丁分析、CVSS/EPSS/KEV优先级、PoC验证、漏洞报告、修复跟踪 |
+| coff0xc-identity-zero-trust | ad-pentest, credential-access, identity-security, lateral-movement, privilege-escalation, zero-trust | 身份/零信任：IAM/SSO/MFA、AD/Kerberos/BloodHound、凭证风险、提权/横向移动防御、Zero Trust/PAM |
+| coff0xc-authorized-assessment | attack-chain-orchestrator, autoredteam-orchestrator, c2-framework, cdn-bypass, data-exfiltration, evasion-toolkit, fingerprint-engine, full-pentest, phishing-simulation, post-exploitation, proxy-pool-manager, recon-workflow, red-team-infra, security-tool-dev, social-engineering | 授权评估：ROE/授权边界、攻击面梳理、红队防御化、C2/evasion、钓鱼/外传演练、安全工具开发 |
+| coff0xc-binary-mobile-iot | binary-exploit, crypto-security, ctf, ics-scada, iot-security, kernel-security, mobile-security, reverse-engineering | 二进制/移动/IoT：逆向工程、PWN/CTF、内核安全、Frida/APK/IPA、固件分析、IoT/ICS/SCADA、密码学审计 |
+| coff0xc-blockchain-security | blockchain-security | 区块链安全：Solidity/EVM、Solana/Cosmos/Substrate、Cairo/StarkNet、TON/Algorand、DeFi/AMM/oracle、Token/NFT、Foundry/Hardhat/Slither |
+| coff0xc-compliance-architecture | compliance-audit, data-security, security-architecture | 合规/架构：STRIDE威胁建模、等保/PCI-DSS/GDPR/ISO27001/SOC2、CIS/NIST基线、数据安全/DLP/隐私、成熟度评估 |
+| coff0xc-purple-deception | honeypot, purple-team | 紫队/欺骗：ATT&CK映射、紫队演练计划、检测/响应验证、蜜罐/deception/canary、覆盖指标 |
+| coff0xc-network-protocol-security | network-protocol, wireless-security | 网络协议安全：TLS/DNS/HTTP3/QUIC、TCP/UDP分析、pcap/Wireshark、无线/BLE/RF、ProVerif形式化建模 |
 
 ## 手动触发写法
+
 如果自动触发不稳定，用户可以直接写：
 
 ```text
 使用 coff0xc-secure-code-appsec 审计这个项目
-用 coff0xc-ai-agent-rag 设计一个 RAG Agent
-调用 coff0xc-cloud-devsecops 检查 K8s 和 CI/CD
-按 coff0xc-detection-response 写 Sigma/YARA 检测
-用 coff0xc-skill-router 帮我选择合适 skill
+使用 coff0xc-ai-agent-rag 设计一个 RAG Agent
+使用 coff0xc-cloud-devsecops 检查 K8s 和 CI/CD
+使用 coff0xc-detection-response 写 Sigma/YARA 检测
+使用 coff0xc-research-drawio-diagram 画算法架构图
+使用 coff0xc-skill-router 查看 Coff0xc 技能列表
 ```
 
 ## 触发排障
-- skill 目录名必须和 frontmatter `name` 一致。
-- 安装或替换后需要重启/刷新客户端，让 skill 列表重新索引。
-- frontmatter 只保留 `name` 和 `description` 最稳；触发词必须写进 `description`。
-- 同名 skill 分布在多个目录时可能抢占触发，保留一份主版本。
-- 太短或只写抽象能力的 description 容易漏触发；应包含中文、英文、工具名、任务名和常见缩写。
+
+- skill 目录名必须和 frontmatter `name` 一致
+- 安装或替换后需要重启/刷新客户端，让 skill 列表重新索引
+- frontmatter 只保留 `name` 和 `description` 最稳；触发词必须写进 `description`
+- 同名 skill 分布在多个目录时可能抢占触发，保留一份主版本
+- 太短或只写抽象能力的 description 容易漏触发；应包含中文、英文、工具名、任务名和常见缩写
