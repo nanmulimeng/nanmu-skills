@@ -1,0 +1,116 @@
+{
+  "name": "nanmu-skills",
+  "owner": {
+    "name": "nanmu"
+  },
+  "metadata": {
+    "description": "泰坦机魂技能集 — 涵盖全栈开发、安全审计、移动开发、飞书生态、文档处理、UI设计等领域",
+    "version": "1.0.0"
+  },
+  "plugins": [
+    {
+      "name": "dev-engineering",
+      "description": "开发工程技能：API设计、后端架构、数据库设计、Git工作流、Go/Python/JS/Shell开发、测试工程、性能优化、Web可访问性",
+      "source": "./",
+      "strict": false,
+      "skills": [
+        "./skills/api-design",
+        "./skills/backend-engineering",
+        "./skills/db-design",
+        "./skills/git-workflow",
+        "./skills/go-dev",
+        "./skills/js-ts-dev",
+        "./skills/python-dev",
+        "./skills/shell-scripting",
+        "./skills/test-engineering",
+        "./skills/perf-engineering",
+        "./skills/web-access"
+      ]
+    },
+    {
+      "name": "security",
+      "description": "安全技能：代码审计、移动安全、逆向工程",
+      "source": "./",
+      "strict": false,
+      "skills": [
+        "./skills/code-audit",
+        "./skills/mobile-security",
+        "./skills/reverse-engineering"
+      ]
+    },
+    {
+      "name": "apple-mobile",
+      "description": "Apple & 移动开发技能：Apple原生开发(Swift/SwiftUI)、Flutter跨平台、uni-app小程序",
+      "source": "./",
+      "strict": false,
+      "skills": [
+        "./skills/apple-development",
+        "./skills/flutter-development",
+        "./skills/uniapp-dev"
+      ]
+    },
+    {
+      "name": "lark",
+      "description": "飞书生态技能全集：审批、考勤、多维表格、日历、通讯录、文档、云盘、事件、即时通讯、邮箱、妙记、OKR、API探索、共享、电子表格、Skill制作、演示文稿、任务、视频会议、白板、知识库、会议纪要、站会报告",
+      "source": "./",
+      "strict": false,
+      "skills": [
+        "./skills/lark-approval",
+        "./skills/lark-attendance",
+        "./skills/lark-base",
+        "./skills/lark-calendar",
+        "./skills/lark-contact",
+        "./skills/lark-doc",
+        "./skills/lark-drive",
+        "./skills/lark-event",
+        "./skills/lark-im",
+        "./skills/lark-mail",
+        "./skills/lark-minutes",
+        "./skills/lark-okr",
+        "./skills/lark-openapi-explorer",
+        "./skills/lark-shared",
+        "./skills/lark-sheets",
+        "./skills/lark-skill-maker",
+        "./skills/lark-slides",
+        "./skills/lark-task",
+        "./skills/lark-vc",
+        "./skills/lark-whiteboard",
+        "./skills/lark-wiki",
+        "./skills/lark-workflow-meeting-summary",
+        "./skills/lark-workflow-standup-report"
+      ]
+    },
+    {
+      "name": "documents",
+      "description": "文档处理技能：Word(docx)、Excel(xlsx)、PDF、PowerPoint(pptx)",
+      "source": "./",
+      "strict": false,
+      "skills": [
+        "./skills/docx",
+        "./skills/xlsx",
+        "./skills/pdf",
+        "./skills/pptx"
+      ]
+    },
+    {
+      "name": "design-product",
+      "description": "设计 & 产品技能：UI设计规范、产品经理方法论",
+      "source": "./",
+      "strict": false,
+      "skills": [
+        "./skills/ui-design",
+        "./skills/product-manager"
+      ]
+    },
+    {
+      "name": "other",
+      "description": "其他技能：面试准备、PUA识别防护",
+      "source": "./",
+      "strict": false,
+      "skills": [
+        "./skills/interview-prep",
+        "./skills/pua"
+      ]
+    }
+  ]
+}
