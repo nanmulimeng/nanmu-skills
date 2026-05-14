@@ -120,6 +120,31 @@
       "skills": [
         "./skills/skill-router"
       ]
+    },
+    {
+      "name": "coff0xc",
+      "description": "Coff0xc 技能集 — 来自 coffee-skill 的17个综合能力技能：软件工程、AI Agent/RAG、API数据平台、UI文档输出、科研绘图、代码审计、云DevSecOps、检测响应、漏洞生命周期、身份零信任、授权评估、二进制移动IoT、区块链安全、合规架构、紫队欺骗防御、网络协议安全、Skill路由",
+      "source": "./",
+      "strict": false,
+      "skills": [
+        "./skills/coff0xc-software-engineering",
+        "./skills/coff0xc-ai-agent-rag",
+        "./skills/coff0xc-api-data-platform",
+        "./skills/coff0xc-ui-doc-output",
+        "./skills/coff0xc-research-drawio-diagram",
+        "./skills/coff0xc-secure-code-appsec",
+        "./skills/coff0xc-cloud-devsecops",
+        "./skills/coff0xc-detection-response",
+        "./skills/coff0xc-vulnerability-lifecycle",
+        "./skills/coff0xc-identity-zero-trust",
+        "./skills/coff0xc-authorized-assessment",
+        "./skills/coff0xc-binary-mobile-iot",
+        "./skills/coff0xc-blockchain-security",
+        "./skills/coff0xc-compliance-architecture",
+        "./skills/coff0xc-purple-deception",
+        "./skills/coff0xc-network-protocol-security",
+        "./skills/coff0xc-skill-router"
+      ]
     }
   ]
 }
