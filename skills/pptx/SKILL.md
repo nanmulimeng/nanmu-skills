@@ -1,6 +1,6 @@
 ---
 name: pptx
-description: Create, read, edit, analyze PowerPoint presentations (.pptx files). Use when user mentions pptx, PowerPoint, slides, presentation, or deck.
+description: 创建、读取、编辑、分析 PowerPoint 演示文稿（.pptx 文件）。当你涉及 PowerPoint、演示文稿、幻灯片、创建演示、编辑 PPT 时必须使用此技能。即使用户只是说"处理这个 pptx"或"生成一个演示文稿"，也应触发。
 ---
 
 # PPTX Skill - PowerPoint Processing

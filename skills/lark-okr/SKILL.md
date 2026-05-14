@@ -1,7 +1,7 @@
 ---
 name: lark-okr
 version: 1.0.0
-description: "飞书 OKR：管理目标与关键结果。查看和编辑 OKR 周期、目标（Objective）、关键结果（Key Result）、对齐关系、量化指标。当用户需要查看或创建 OKR、管理目标和关键结果、查看对齐关系时使用。"
+description: "飞书 OKR 操作：管理目标与关键结果，包括查看和编辑 OKR 周期、目标（Objective）、关键结果（Key Result）、对齐关系、量化指标。通过 lark-cli 命令操作飞书 OKR 功能。当用户需要查看或创建 OKR、管理目标和关键结果、查看对齐关系时使用。即使用户只是说'查下OKR'或'创建目标'，也应触发。"
 metadata:
   requires:
     bins: [ "lark-cli" ]

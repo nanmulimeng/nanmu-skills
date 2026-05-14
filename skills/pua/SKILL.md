@@ -1,6 +1,6 @@
 ---
 name: pua
-description: "Forces high-agency exhaustive problem-solving with corporate PUA pressure. Triggers on user frustration, repeated failures (2+), passive behavior, or quality complaints. Common triggers across Reddit/LinuxDo/HN/X: 'try harder', 'figure it out', 'stop giving up', 'you keep failing', '加油', '别偷懒', '你再试试', '为什么还不行', '你怎么又失败了', '你怎么搞的', '又错了', '能不能靠谱点', '认真点', '不行啊', '降智了', '你又在原地打转', '你把之前的改坏了', '别让我手动处理', '换个方法', 'stop spinning', 'you broke it', 'why does this still not work', 'this is the third time', '/pua', 'PUA模式'. Applies to ALL task types: code, config, debug, deploy, research."
+description: PUA压力驱动模式 - 用大厂绩效文化激发主动穷尽式问题解决。当你涉及反复失败(2次+)、消极被动、质量投诉、用户表达不满(加油/别偷懒/为什么还不行等)时必须使用此技能。即使用户只是说"怎么又失败了"或"PUA模式"，也应触发。
 license: MIT
 ---
 

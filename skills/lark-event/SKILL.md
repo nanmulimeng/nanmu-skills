@@ -1,7 +1,7 @@
 ---
 name: lark-event
 version: 1.0.0
-description: "飞书事件订阅：通过 WebSocket 长连接实时监听飞书事件（消息、通讯录变更、日历变更等），输出 NDJSON 到 stdout，支持 compact Agent 友好格式、正则路由、文件输出。当用户需要实时监听飞书事件、构建事件驱动管道时使用。"
+description: "飞书事件订阅：通过 WebSocket 长连接实时监听飞书事件（消息、通讯录变更、日历变更等），输出 NDJSON 到 stdout。通过 lark-cli 命令管理事件订阅。当用户需要实时监听飞书事件、构建事件驱动管道时使用。即使用户只是说'监听飞书消息'或'订阅事件'，也应触发。"
 metadata:
   requires:
     bins: ["lark-cli"]

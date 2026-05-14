@@ -1,6 +1,6 @@
 ---
 name: uniapp-dev
-description: UniApp跨端开发技能 - Vue3+UniApp语法、条件编译、多端差异、小程序生命周期、路由导航、分包加载、平台API、微信开放能力、审核规范。当你涉及UniApp/uni-app/小程序/微信小程序/H5跨端开发时必须使用此技能。即使用户只是说"写个小程序页面"或"uni-app加个功能"，也应触发。
+description: UniApp跨端开发技能 - Vue3 Composition API+UniApp语法、条件编译(#ifdef MP-WEIXIN)、多端差异(微信/支付宝/百度/抖音小程序+H5+App)、小程序生命周期(onLoad/onShow/onReady/onUnload)、路由导航(uni.navigateTo/switchTab/reLaunch)、分包加载(subPackages/preloadRule)、平台API(uni.request/uni.getSystemInfo/uni.setStorageSync)、pages.json/manifest.json配置、微信开放能力(登录/支付/分享/订阅消息/OAuth)、小程序审核规范(隐私合规/内容安全/虚拟支付限制/资质要求)。当你涉及UniApp/uni-app/小程序(微信/支付宝/百度/抖音)/H5跨端开发、pages.json配置、分包优化、小程序审核上架、微信支付/登录对接、rpx响应式布局时必须使用此技能。即使用户只是说"写个小程序页面"或"uni-app加个功能"或"小程序审核被拒"或"配置pages.json"，也应触发。
 ---
 
 # UniApp跨端开发技能 (UniApp Cross-Platform Skill)

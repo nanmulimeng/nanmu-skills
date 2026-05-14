@@ -1,6 +1,6 @@
 ---
 name: reverse-engineering
-description: 逆向工程技能 - 二进制分析、协议逆向、Hook/注入、脱壳、防护对抗、漏洞挖掘。当你涉及逆向分析、反编译、二进制分析、Hook、Frida、LLDB调试、协议分析、加密算法还原、防护绕过、脱壳、签名伪造时必须使用此技能。即使用户只是说"看看这个app"或"分析一下这个二进制"，也应触发。
+description: 逆向工程技能 - 二进制分析、协议逆向、Hook/注入、脱壳、防护对抗、漏洞挖掘。当你涉及逆向分析、反编译、二进制分析、Frida Hook、LLDB/GDB调试、Ghidra/IDA Pro/Hopper使用、Mach-O/ELF/PE分析、协议逆向、加密算法还原、防护绕过、脱壳加壳分析、签名伪造、内存dump、dylib注入、OLLVM混淆还原、UPX脱壳时必须使用此技能。即使用户只是说"看看这个app"、"分析一下这个二进制"或"逆向一下"，也应触发。
 ---
 
 # 逆向工程技能 (Reverse Engineering Skill)

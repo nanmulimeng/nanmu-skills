@@ -1,10 +1,15 @@
 ---
 name: web-access
-description: "Web browsing and automation skill. Use when user needs to access websites, scrape content, or interact with web pages. Handles Chrome DevTools Protocol (CDP) for browser automation, WebSearch, WebFetch, and Jina preprocessing. Perfect for accessing locked content (Xiaohongshu, WeChat articles) that requires login state or JavaScript rendering."
+description: "网页浏览与自动化技能 - Chrome DevTools Protocol (CDP) 浏览器自动化、WebSearch搜索、WebFetch抓取、Jina预处理。当你涉及网页内容抓取、网站自动化操作、浏览器交互、需登录态或JS渲染的内容访问（小红书/微信公众号文章）、Chrome远程调试、CDP操作时必须使用此技能。即使用户只是说"打开这个网页"或"帮我搜一下"或"抓取内容"，也应触发。"
 license: MIT
 ---
 
-# web-access Skill
+# web-access Skill（网页浏览与自动化）
+
+## 快速规则（日常开发时自动加载，只需读到这里）
+
+> **[Web核心清单]** ① 操作前必须`check-deps.mjs`检查CDP可用性 ② 工具选择：WebSearch搜索/WebFetch已知URL/Browser CDP处理需登录态或JS渲染的内容 ③ 以目标为导向，边观察边调整，不硬套预设步骤
+> **[操作三禁]** ❌未经用户明确要求不操作用户现有标签页 ❌不凭猜测下结论——先验证一手来源 ❌任务完成后不过度操作
 
 ## Pre-flight Check
 

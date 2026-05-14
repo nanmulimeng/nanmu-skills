@@ -1,6 +1,6 @@
 ---
 name: flutter-development
-description: Flutter跨端开发技能 - Dart语言、Widget组件、状态管理、平台通道(MethodChannel/EventChannel/Pigeon/FFI)、硬件对接(BLE/传感器/USB)、性能优化、常见坑、打包发布。当你涉及Flutter/Dart代码开发、跨平台UI、平台通道、原生插件、硬件通信、Flutter打包发布时必须使用此技能。即使用户只是说"Flutter加个功能"或"跨端开发"，也应触发。
+description: Flutter跨端开发技能 - Dart语言(null safety/模式匹配/sealed class)、Widget组件(StatelessWidget/StatefulWidget/build)、状态管理(Riverpod/Bloc/Provider)、平台通道(Pigeon/MethodChannel/EventChannel/dart:ffi)、硬件对接(BLE蓝牙/传感器/USB)、性能优化(const/RepaintBoundary/懒加载)、常见坑(setState after dispose/键盘遮挡/ListView嵌套)、打包发布(apk/ipa/App Store/Google Play)。当你涉及Flutter/Dart代码开发、跨平台UI、平台通道/原生插件、硬件通信(BLE/USB/传感器)、pubspec.yaml依赖管理、flutter build打包、flutter run调试、Hot Reload、Android/iOS发布时必须使用此技能。即使用户只是说"Flutter加个功能"或"跨端开发"或"打个apk包"或"flutter pub get"，也应触发。
 ---
 
 # Flutter跨端开发技能 (Flutter Development Skill)

@@ -1,13 +1,14 @@
 ---
 name: interview-prep
-description: Use when a Java engineer wants to learn backend interview topics, test knowledge depth, or do mock interviews for JVM, concurrency, MySQL, Redis, Spring, distributed systems.
+description: Java后端面试准备技能 - 八股文学习、知识深度测试、模拟面试。当你涉及Java面试准备、JVM、并发编程、MySQL、Redis、Spring、分布式系统等后端知识点时必须使用此技能。即使用户只是说"面试"或"八股文"，也应触发。
 ---
 
 # Java 八股面试辅助
 
-## Core Rule: Never Give Answers Before User Tries
+## 快速规则（日常使用时自动加载，只需读到这里）
 
-这是铁律。出题后必须等用户回答，再补充。违反 = 学习失效。
+> **[面试核心清单]** ① 出题后必须等用户回答，绝不先给答案（铁律！违反=学习失效） ② 每次出题≤3道，追问≤3层 ③ 讲解顺序：What→Why→How ④ 用户说"不会"也算回答，根据掌握度分层讲解
+> **[禁止项]** ❌绝不先给答案 ❌绝不重复讲已掌握知识点 ❌绝不连续追问超过3层 ❌绝不跳过用户回答直接给答案
 
 ## Three Modes
 

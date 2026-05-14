@@ -1,7 +1,7 @@
 ---
 name: lark-workflow-meeting-summary
 version: 1.0.0
-description: "会议纪要整理工作流：汇总指定时间范围内的会议纪要并生成结构化报告。当用户需要整理会议纪要、生成会议周报、回顾一段时间内的会议内容时使用。"
+description: "飞书会议纪要汇总：通过 lark-cli 编排 vc +search 和 vc +notes 命令，汇总指定时间范围内的会议纪要并生成结构化报告。当用户需要整理会议纪要、生成会议周报、回顾会议内容时使用。即使用户只是说'整理会议纪要'或'这周开了哪些会'，也应触发。"
 metadata:
   requires:
     bins: ["lark-cli"]

@@ -1,7 +1,7 @@
 ---
 name: lark-slides
 version: 1.0.0
-description: "飞书幻灯片：以 XML 格式读取和管理 PPT 页面。创建演示文稿优先用 `+create`；XML API 主要用于读取 PPT 全文信息、创建和删除幻灯片页面。当用户需要创建 PPT、读取 PPT 内容、管理幻灯片页面时使用。"
+description: "飞书幻灯片操作：以 XML 格式读取和管理演示文稿页面、创建 PPT（一键生成含内容的完整幻灯片）、上传图片素材。通过 lark-cli 命令管理飞书演示文稿。当用户需要创建 PPT、读取幻灯片内容、新增或删除幻灯片页面时使用。即使用户只是说'做个PPT'或'创建演示文稿'，也应触发。"
 metadata:
   requires:
     bins: ["lark-cli"]

@@ -1,6 +1,6 @@
 ---
 name: mobile-security
-description: 移动安全与渗透测试技能 - Android/iOS安全评估、Frida Hook、SSL Pinning绕过、Root/越狱检测绕过、漏洞挖掘、防护对抗、OWASP MASTG。当你涉及移动应用安全测试、Android/iOS渗透、Frida Hook、SSL Pinning、Root检测绕过、漏洞挖掘、红队攻击、防护对抗时必须使用此技能。即使用户只是说"测试这个APP"或"绕过检测"，也应触发。
+description: 移动安全与渗透测试技能 - Android/iOS应用安全评估、Frida Hook、SSL Pinning绕过、Root/越狱检测绕过、漏洞挖掘、防护对抗、OWASP MASTG。当你涉及移动应用渗透测试、Android/iOS安全测试、APK/IPA分析、脱壳反编译、Frida/Objection/Drozer使用、SSL Pinning/Root检测/越狱检测绕过、抓包分析(Charles/Burp/mitmproxy)、组件暴露审计、数据存储安全检查、剪贴板安全、认证绕过时必须使用此技能。即使用户只是说"测试这个APP"、"绕过检测"或"Hook这个应用"，也应触发。
 ---
 
 # 移动安全与渗透测试技能 (Mobile Security & Penetration Testing)

@@ -1,6 +1,6 @@
 ---
 name: docx
-description: Create, read, edit, and analyze Word documents (.docx files). Use when user mentions docx, Word document, or needs to work with .docx files.
+description: 创建、读取、编辑、分析 Word 文档（.docx 文件）。当你涉及 Word 文档、创建文档、编辑文档、读取 .docx 文件时必须使用此技能。即使用户只是说"处理这个 docx"或"生成一份 Word 报告"，也应触发。
 ---
 
 # DOCX Skill - Word Document Processing
