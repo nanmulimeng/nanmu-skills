@@ -1,7 +1,7 @@
 ---
 name: lark-attendance
 version: 1.0.0
-description: "飞书考勤操作：查询用户考勤打卡记录。通过 lark-cli 命令获取飞书考勤数据。当用户需要查看考勤记录、导出打卡数据、查询考勤状态时使用。即使用户只是说'查下打卡记录'或'我的考勤'，也应触发。"
+description: "飞书考勤操作：查询用户考勤打卡记录。通过 lark-cli 命令获取飞书考勤数据。当用户需要查看考勤记录、导出打卡数据、查询考勤状态时使用。即使用户只是说'查下打卡记录'或'我的考勤'，也应触发。如果未自动触发，手动写：`使用 lark-attendance`。"
 metadata:
   requires:
     bins: ["lark-cli"]

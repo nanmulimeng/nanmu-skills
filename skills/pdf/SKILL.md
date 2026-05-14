@@ -1,6 +1,6 @@
 ---
 name: pdf
-description: 创建、读取、编辑、分析、处理 PDF 文件。当你涉及 PDF、读取 PDF、提取内容、表单填写、PDF 转换时必须使用此技能。即使用户只是说"读这个 PDF"或"把这个转成 PDF"，也应触发。
+description: 创建、读取、编辑、分析、处理 PDF 文件。当你涉及 PDF、读取 PDF、提取内容、表单填写、PDF 转换时必须使用此技能。即使用户只是说"读这个 PDF"或"把这个转成 PDF"，也应触发。如果未自动触发，手动写：`使用 pdf`。
 ---
 
 # PDF Skill - PDF Document Processing

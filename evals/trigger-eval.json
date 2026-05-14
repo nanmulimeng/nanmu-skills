@@ -1,0 +1,1203 @@
+{
+  "schema_version": 1,
+  "description": "Trigger evaluation set for nanmu-skills (泰坦机魂技能集). Positive cases test whether the expected skill ranks from SKILL.md frontmatter metadata. Negative cases test false-positive risk for simple or unrelated prompts. Covers all 49 skills across 8 plugin groups.",
+  "targets": {
+    "positive_top1_rate": 0.85,
+    "positive_top3_rate": 0.95,
+    "router_top3_rate": 0.90,
+    "negative_no_trigger_rate": 0.80
+  },
+  "cases": [
+    {
+      "id": "api-cn-endpoint",
+      "language": "zh-CN",
+      "category": "natural_cn",
+      "prompt": "帮我加一个用户注册接口，RESTful 风格，统一用 {code, data, message} 响应格式，列表要分页。",
+      "should_trigger": true,
+      "expected_skill": "api-design",
+      "reason": "API endpoint design with response format and pagination."
+    },
+    {
+      "id": "api-en-rest-design",
+      "language": "en",
+      "category": "natural_en",
+      "prompt": "Design a REST API for the order service with versioning, authentication, rate limiting, and error codes.",
+      "should_trigger": true,
+      "expected_skill": "api-design",
+      "reason": "REST API design with multiple API concerns."
+    },
+    {
+      "id": "api-manual",
+      "language": "zh-CN",
+      "category": "manual_invocation",
+      "prompt": "使用 api-design 帮我审查这几个新接口的设计是否规范。",
+      "should_trigger": true,
+      "expected_skill": "api-design",
+      "reason": "Explicit skill invocation."
+    },
+
+    {
+      "id": "backend-cn-architecture",
+      "language": "zh-CN",
+      "category": "natural_cn",
+      "prompt": "设计一个微服务架构，包含中间件链、错误处理策略、结构化日志和优雅关闭。",
+      "should_trigger": true,
+      "expected_skill": "backend-engineering",
+      "reason": "Backend architecture with middleware, error handling, logging, and graceful shutdown."
+    },
+    {
+      "id": "backend-en-deploy",
+      "language": "en",
+      "category": "natural_en",
+      "prompt": "Set up a Go backend service with configuration management, health checks, cross-compilation, and deployment pipeline.",
+      "should_trigger": true,
+      "expected_skill": "backend-engineering",
+      "reason": "Backend service setup with config, health checks, cross-compilation, deployment."
+    },
+    {
+      "id": "backend-manual",
+      "language": "zh-CN",
+      "category": "manual_invocation",
+      "prompt": "使用 backend-engineering 帮我规划后端服务的日志策略和进程管理方案。",
+      "should_trigger": true,
+      "expected_skill": "backend-engineering",
+      "reason": "Explicit skill invocation."
+    },
+
+    {
+      "id": "db-cn-schema-index",
+      "language": "zh-CN",
+      "category": "natural_cn",
+      "prompt": "帮我设计用户表的 schema，包含索引策略、分库分表方案和迁移脚本。",
+      "should_trigger": true,
+      "expected_skill": "db-design",
+      "reason": "Database schema design with indexing, sharding, and migration."
+    },
+    {
+      "id": "db-en-query-opt",
+      "language": "en",
+      "category": "natural_en",
+      "prompt": "Optimize this slow SQL query with proper indexing, query plan analysis, and concurrency-safe patterns.",
+      "should_trigger": true,
+      "expected_skill": "db-design",
+      "reason": "SQL optimization with indexing, query plans, concurrency."
+    },
+    {
+      "id": "db-manual",
+      "language": "zh-CN",
+      "category": "manual_invocation",
+      "prompt": "使用 db-design 审查数据库表结构的安全性和性能。",
+      "should_trigger": true,
+      "expected_skill": "db-design",
+      "reason": "Explicit skill invocation."
+    },
+
+    {
+      "id": "git-cn-workflow",
+      "language": "zh-CN",
+      "category": "natural_cn",
+      "prompt": "帮我写规范的 commit message，用 Git Flow 分支策略，再 rebase 到 main。",
+      "should_trigger": true,
+      "expected_skill": "git-workflow",
+      "reason": "Git commit, branching workflow, rebase operations."
+    },
+    {
+      "id": "git-en-pr-review",
+      "language": "en",
+      "category": "natural_en",
+      "prompt": "Review these commits, squash them into logical units, and create a clean PR with proper description.",
+      "should_trigger": true,
+      "expected_skill": "git-workflow",
+      "reason": "Git commit review, squashing, PR creation."
+    },
+    {
+      "id": "git-manual",
+      "language": "zh-CN",
+      "category": "manual_invocation",
+      "prompt": "使用 git-workflow 帮我处理这次合并冲突。",
+      "should_trigger": true,
+      "expected_skill": "git-workflow",
+      "reason": "Explicit skill invocation."
+    },
+
+    {
+      "id": "go-cn-goroutine",
+      "language": "zh-CN",
+      "category": "natural_cn",
+      "prompt": "用 goroutine 和 channel 实现一个并发任务池，注意 context 超时和错误传播。",
+      "should_trigger": true,
+      "expected_skill": "go-dev",
+      "reason": "Go concurrency with goroutine, channel, context, error handling."
+    },
+    {
+      "id": "go-en-interface",
+      "language": "en",
+      "category": "natural_en",
+      "prompt": "Refactor this Go module using interfaces, generics, and table-driven tests with proper error wrapping.",
+      "should_trigger": true,
+      "expected_skill": "go-dev",
+      "reason": "Go module refactoring with interfaces, generics, testing."
+    },
+    {
+      "id": "go-manual",
+      "language": "zh-CN",
+      "category": "manual_invocation",
+      "prompt": "使用 go-dev 排查这个 goroutine 泄漏问题。",
+      "should_trigger": true,
+      "expected_skill": "go-dev",
+      "reason": "Explicit skill invocation."
+    },
+
+    {
+      "id": "jsts-cn-async",
+      "language": "zh-CN",
+      "category": "natural_cn",
+      "prompt": "把这个 Node.js 项目的回调改成 async/await，加 TypeScript 类型定义和 ESM 模块。",
+      "should_trigger": true,
+      "expected_skill": "js-ts-dev",
+      "reason": "JS/TS with async/await, TypeScript, ESM modules."
+    },
+    {
+      "id": "jsts-en-npm-pkg",
+      "language": "en",
+      "category": "natural_en",
+      "prompt": "Create an npm package with TypeScript, proper exports map, unit tests, and CI pipeline configuration.",
+      "should_trigger": true,
+      "expected_skill": "js-ts-dev",
+      "reason": "JavaScript/TypeScript package with exports, tests, CI."
+    },
+    {
+      "id": "jsts-manual",
+      "language": "zh-CN",
+      "category": "manual_invocation",
+      "prompt": "使用 js-ts-dev 把这个 JS 项目迁移到 TypeScript。",
+      "should_trigger": true,
+      "expected_skill": "js-ts-dev",
+      "reason": "Explicit skill invocation."
+    },
+
+    {
+      "id": "python-cn-fastapi",
+      "language": "zh-CN",
+      "category": "natural_cn",
+      "prompt": "用 FastAPI 写一个后台任务队列，加上 pytest 测试和 pip 依赖管理。",
+      "should_trigger": true,
+      "expected_skill": "python-dev",
+      "reason": "Python with FastAPI, pytest, pip dependency management."
+    },
+    {
+      "id": "python-en-django",
+      "language": "en",
+      "category": "natural_en",
+      "prompt": "Optimize this Django ORM query with select_related, add type hints, and write pytest coverage for edge cases.",
+      "should_trigger": true,
+      "expected_skill": "python-dev",
+      "reason": "Python/Django with ORM optimization, type hints, testing."
+    },
+    {
+      "id": "python-manual",
+      "language": "zh-CN",
+      "category": "manual_invocation",
+      "prompt": "使用 python-dev 帮我重构这个 Flask 项目到 FastAPI。",
+      "should_trigger": true,
+      "expected_skill": "python-dev",
+      "reason": "Explicit skill invocation."
+    },
+
+    {
+      "id": "shell-cn-automation",
+      "language": "zh-CN",
+      "category": "natural_cn",
+      "prompt": "写一个 Bash 脚本自动备份数据库、压缩日志并发送钉钉通知，要有错误处理和锁文件。",
+      "should_trigger": true,
+      "expected_skill": "shell-scripting",
+      "reason": "Shell scripting with automation, error handling, lock files."
+    },
+    {
+      "id": "shell-en-deploy-script",
+      "language": "en",
+      "category": "natural_en",
+      "prompt": "Write a POSIX shell script for deployment with idempotent steps, proper signal trapping, and rollback on failure.",
+      "should_trigger": true,
+      "expected_skill": "shell-scripting",
+      "reason": "Shell deployment script with idempotency, signal handling, rollback."
+    },
+    {
+      "id": "shell-manual",
+      "language": "zh-CN",
+      "category": "manual_invocation",
+      "prompt": "使用 shell-scripting 把这个手动操作改成自动化脚本。",
+      "should_trigger": true,
+      "expected_skill": "shell-scripting",
+      "reason": "Explicit skill invocation."
+    },
+
+    {
+      "id": "test-cn-coverage",
+      "language": "zh-CN",
+      "category": "natural_cn",
+      "prompt": "给这个模块补单元测试，覆盖正常路径、边界条件、错误分支，覆盖率要到 80%。",
+      "should_trigger": true,
+      "expected_skill": "test-engineering",
+      "reason": "Testing with unit tests, coverage targets, edge cases."
+    },
+    {
+      "id": "test-en-tdd",
+      "language": "en",
+      "category": "natural_en",
+      "prompt": "Set up a TDD workflow with property-based testing, mocking strategy, and integration test fixtures.",
+      "should_trigger": true,
+      "expected_skill": "test-engineering",
+      "reason": "TDD workflow with property-based testing, mocking, fixtures."
+    },
+    {
+      "id": "test-manual",
+      "language": "zh-CN",
+      "category": "manual_invocation",
+      "prompt": "使用 test-engineering 建立这个项目的测试金字塔策略。",
+      "should_trigger": true,
+      "expected_skill": "test-engineering",
+      "reason": "Explicit skill invocation."
+    },
+
+    {
+      "id": "perf-cn-slow-query",
+      "language": "zh-CN",
+      "category": "natural_cn",
+      "prompt": "排查这个慢查询和内存泄漏问题，检查 N+1 查询、缓存策略和 goroutine 泄漏。",
+      "should_trigger": true,
+      "expected_skill": "perf-engineering",
+      "reason": "Performance optimization with slow queries, memory leaks, N+1, caching."
+    },
+    {
+      "id": "perf-en-profiling",
+      "language": "en",
+      "category": "natural_en",
+      "prompt": "Profile this service for latency bottlenecks, memory pressure, and connection pool exhaustion under load.",
+      "should_trigger": true,
+      "expected_skill": "perf-engineering",
+      "reason": "Performance profiling for latency, memory, connection pool."
+    },
+    {
+      "id": "perf-manual",
+      "language": "zh-CN",
+      "category": "manual_invocation",
+      "prompt": "使用 perf-engineering 对线上服务做性能分析和优化。",
+      "should_trigger": true,
+      "expected_skill": "perf-engineering",
+      "reason": "Explicit skill invocation."
+    },
+
+    {
+      "id": "web-cn-crawler",
+      "language": "zh-CN",
+      "category": "natural_cn",
+      "prompt": "用 CDP 协议爬取这个 SPA 页面，获取截图、拦截网络请求、提取动态渲染内容。",
+      "should_trigger": true,
+      "expected_skill": "web-access",
+      "reason": "Web access with CDP, screenshots, network interception, dynamic content."
+    },
+    {
+      "id": "web-en-browser-auto",
+      "language": "en",
+      "category": "natural_en",
+      "prompt": "Automate browser interactions with Playwright, capture screenshots, handle authentication, and extract structured data.",
+      "should_trigger": true,
+      "expected_skill": "web-access",
+      "reason": "Browser automation with Playwright, screenshots, auth, data extraction."
+    },
+    {
+      "id": "web-manual",
+      "language": "zh-CN",
+      "category": "manual_invocation",
+      "prompt": "使用 web-access 帮我抓取这个需要登录才能访问的页面内容。",
+      "should_trigger": true,
+      "expected_skill": "web-access",
+      "reason": "Explicit skill invocation."
+    },
+
+    {
+      "id": "audit-cn-injection",
+      "language": "zh-CN",
+      "category": "natural_cn",
+      "prompt": "审计这段代码的 SQL 注入、XSS 和 SSRF 漏洞，按 OWASP Top 10 逐项检查，给出修复方案。",
+      "should_trigger": true,
+      "expected_skill": "code-audit",
+      "reason": "Code audit for SQL injection, XSS, SSRF with OWASP Top 10."
+    },
+    {
+      "id": "audit-en-sast",
+      "language": "en",
+      "category": "natural_en",
+      "prompt": "Run a security audit on this codebase focusing on input validation, authentication bypass, CVE dependencies, and CWE mapping.",
+      "should_trigger": true,
+      "expected_skill": "code-audit",
+      "reason": "Security audit with input validation, auth bypass, CVE, CWE."
+    },
+    {
+      "id": "audit-manual",
+      "language": "zh-CN",
+      "category": "manual_invocation",
+      "prompt": "使用 code-audit 审查这个新增的权限模块是否有越权风险。",
+      "should_trigger": true,
+      "expected_skill": "code-audit",
+      "reason": "Explicit skill invocation."
+    },
+
+    {
+      "id": "mobilesec-cn-apk-frida",
+      "language": "zh-CN",
+      "category": "natural_cn",
+      "prompt": "对这个 APK 做 Frida Hook，绕过 SSL Pinning，抓取加密的 API 请求。",
+      "should_trigger": true,
+      "expected_skill": "mobile-security",
+      "reason": "Mobile security with APK, Frida Hook, SSL Pinning bypass."
+    },
+    {
+      "id": "mobilesec-en-ipa-analysis",
+      "language": "en",
+      "category": "natural_en",
+      "prompt": "Analyze this IPA for hardcoded secrets, insecure data storage, certificate pinning bypass, and runtime manipulation.",
+      "should_trigger": true,
+      "expected_skill": "mobile-security",
+      "reason": "iOS security analysis with secrets, data storage, certificate pinning."
+    },
+    {
+      "id": "mobilesec-manual",
+      "language": "zh-CN",
+      "category": "manual_invocation",
+      "prompt": "使用 mobile-security 对这个安卓应用做安全评估。",
+      "should_trigger": true,
+      "expected_skill": "mobile-security",
+      "reason": "Explicit skill invocation."
+    },
+
+    {
+      "id": "reverse-cn-ghidra",
+      "language": "zh-CN",
+      "category": "natural_cn",
+      "prompt": "用 IDA/Ghidra 逆向这个二进制文件，分析脱壳后的算法逻辑和通信协议。",
+      "should_trigger": true,
+      "expected_skill": "reverse-engineering",
+      "reason": "Reverse engineering with IDA/Ghidra, unpacking, algorithm analysis."
+    },
+    {
+      "id": "reverse-en-binary-patch",
+      "language": "en",
+      "category": "natural_en",
+      "prompt": "Reverse this Mach-O binary, identify anti-debugging tricks, patch the binary, and document the control flow.",
+      "should_trigger": true,
+      "expected_skill": "reverse-engineering",
+      "reason": "Reverse binary with anti-debugging, patching, control flow analysis."
+    },
+    {
+      "id": "reverse-manual",
+      "language": "zh-CN",
+      "category": "manual_invocation",
+      "prompt": "使用 reverse-engineering 分析这个加壳的 Windows PE 文件。",
+      "should_trigger": true,
+      "expected_skill": "reverse-engineering",
+      "reason": "Explicit skill invocation."
+    },
+
+    {
+      "id": "apple-cn-swiftui",
+      "language": "zh-CN",
+      "category": "natural_cn",
+      "prompt": "用 SwiftUI 写一个 macOS 状态栏应用，集成 @MainActor 数据流和 Core Data 存储。",
+      "should_trigger": true,
+      "expected_skill": "apple-development",
+      "reason": "Apple native dev with SwiftUI, macOS, MainActor, Core Data."
+    },
+    {
+      "id": "apple-en-ios-app",
+      "language": "en",
+      "category": "natural_en",
+      "prompt": "Build an iOS app with Swift and UIKit, add background tasks, keychain storage, and push notification support.",
+      "should_trigger": true,
+      "expected_skill": "apple-development",
+      "reason": "iOS development with Swift, UIKit, background tasks, keychain."
+    },
+    {
+      "id": "apple-manual",
+      "language": "zh-CN",
+      "category": "manual_invocation",
+      "prompt": "使用 apple-development 帮我在 Xcode 里调试这个内存泄漏问题。",
+      "should_trigger": true,
+      "expected_skill": "apple-development",
+      "reason": "Explicit skill invocation."
+    },
+
+    {
+      "id": "flutter-cn-cross-platform",
+      "language": "zh-CN",
+      "category": "natural_cn",
+      "prompt": "用 Flutter 和 Dart 写一个跨平台扫码组件，适配 iOS 和 Android 的相机权限和状态管理。",
+      "should_trigger": true,
+      "expected_skill": "flutter-development",
+      "reason": "Flutter/Dart cross-platform with camera, permissions, state management."
+    },
+    {
+      "id": "flutter-en-widget-test",
+      "language": "en",
+      "category": "natural_en",
+      "prompt": "Refactor this Flutter widget tree, add widget tests, set up BLoC state management, and optimize rendering performance.",
+      "should_trigger": true,
+      "expected_skill": "flutter-development",
+      "reason": "Flutter widget refactoring with testing, BLoC, performance."
+    },
+    {
+      "id": "flutter-manual",
+      "language": "zh-CN",
+      "category": "manual_invocation",
+      "prompt": "使用 flutter-development 帮我给这个 Flutter 页面加动效和手势交互。",
+      "should_trigger": true,
+      "expected_skill": "flutter-development",
+      "reason": "Explicit skill invocation."
+    },
+
+    {
+      "id": "uniapp-cn-miniprogram",
+      "language": "zh-CN",
+      "category": "natural_cn",
+      "prompt": "用 uni-app 写一个微信小程序页面，支持 H5 和 App 端自适应，接入微信支付。",
+      "should_trigger": true,
+      "expected_skill": "uniapp-dev",
+      "reason": "uni-app miniprogram with H5/App adaptation and WeChat Pay."
+    },
+    {
+      "id": "uniapp-en-cross-end",
+      "language": "en",
+      "category": "natural_en",
+      "prompt": "Build a cross-platform mini-app with uni-app, handle platform-specific APIs, conditional compilation, and multi-end publishing.",
+      "should_trigger": true,
+      "expected_skill": "uniapp-dev",
+      "reason": "uni-app cross-platform with conditional compilation and publishing."
+    },
+    {
+      "id": "uniapp-manual",
+      "language": "zh-CN",
+      "category": "manual_invocation",
+      "prompt": "使用 uniapp-dev 把这个 H5 项目打包成微信小程序。",
+      "should_trigger": true,
+      "expected_skill": "uniapp-dev",
+      "reason": "Explicit skill invocation."
+    },
+
+    {
+      "id": "lark-approval-cn",
+      "language": "zh-CN",
+      "category": "natural_cn",
+      "prompt": "帮我查下最近提交的审批单状态，驳回那个预算超标的申请。",
+      "should_trigger": true,
+      "expected_skill": "lark-approval",
+      "reason": "Lark approval query, approve/reject operations."
+    },
+    {
+      "id": "lark-approval-manual",
+      "language": "zh-CN",
+      "category": "manual_invocation",
+      "prompt": "使用 lark-approval 批量催办所有超时的审批。",
+      "should_trigger": true,
+      "expected_skill": "lark-approval",
+      "reason": "Explicit skill invocation."
+    },
+
+    {
+      "id": "lark-calendar-cn",
+      "language": "zh-CN",
+      "category": "natural_cn",
+      "prompt": "帮我创建下周一的部门周会，邀请所有前端同事，预定 409 会议室。",
+      "should_trigger": true,
+      "expected_skill": "lark-calendar",
+      "reason": "Lark calendar event creation with invitees and room booking."
+    },
+    {
+      "id": "lark-im-cn",
+      "language": "zh-CN",
+      "category": "natural_cn",
+      "prompt": "给产品群发一条消息，通知他们新版本 API 已上线，文档已更新。",
+      "should_trigger": true,
+      "expected_skill": "lark-im",
+      "reason": "Lark IM message sending to group."
+    },
+    {
+      "id": "lark-doc-cn",
+      "language": "zh-CN",
+      "category": "natural_cn",
+      "prompt": "帮我在飞书文档里创建一个项目上线清单，包含检查项和负责人，分享给全组。",
+      "should_trigger": true,
+      "expected_skill": "lark-doc",
+      "reason": "Lark document creation with checklist and sharing."
+    },
+    {
+      "id": "lark-sheets-cn",
+      "language": "zh-CN",
+      "category": "natural_cn",
+      "prompt": "在飞书表格里帮我建一个 Bug 追踪表，包含状态、优先级、负责人和截止日期列。",
+      "should_trigger": true,
+      "expected_skill": "lark-sheets",
+      "reason": "Lark spreadsheet with tracking columns."
+    },
+    {
+      "id": "lark-base-cn",
+      "language": "zh-CN",
+      "category": "natural_cn",
+      "prompt": "在多维表格里建一个项目管理系统，关联任务表、人员表和工时统计。",
+      "should_trigger": true,
+      "expected_skill": "lark-base",
+      "reason": "Lark Base multi-dim table with linked tables."
+    },
+    {
+      "id": "lark-task-cn",
+      "language": "zh-CN",
+      "category": "natural_cn",
+      "prompt": "帮我创建一个任务，分配给张三，截止日期是周五，优先级设为高。",
+      "should_trigger": true,
+      "expected_skill": "lark-task",
+      "reason": "Lark task creation with assignee, deadline, priority."
+    },
+    {
+      "id": "lark-vc-cn",
+      "language": "zh-CN",
+      "category": "natural_cn",
+      "prompt": "创建一个视频会议，邀请项目组全员，开启录制和自动字幕。",
+      "should_trigger": true,
+      "expected_skill": "lark-vc",
+      "reason": "Lark video conference creation with recording and subtitles."
+    },
+    {
+      "id": "lark-wiki-cn",
+      "language": "zh-CN",
+      "category": "natural_cn",
+      "prompt": "在飞书知识库创建一篇技术文档，包含架构图、API 示例和 FAQ 章节。",
+      "should_trigger": true,
+      "expected_skill": "lark-wiki",
+      "reason": "Lark wiki knowledge base article creation."
+    },
+    {
+      "id": "lark-mail-cn",
+      "language": "zh-CN",
+      "category": "natural_cn",
+      "prompt": "用飞书邮箱给候选人群发面试邀请邮件，包含时间、地点和 JD 附件。",
+      "should_trigger": true,
+      "expected_skill": "lark-mail",
+      "reason": "Lark mail group sending with attachments."
+    },
+    {
+      "id": "lark-contact-cn",
+      "language": "zh-CN",
+      "category": "natural_cn",
+      "prompt": "搜索公司里所有后端工程师，导出他们的部门和联系方式。",
+      "should_trigger": true,
+      "expected_skill": "lark-contact",
+      "reason": "Lark contact search and organization info."
+    },
+    {
+      "id": "lark-attendance-cn",
+      "language": "zh-CN",
+      "category": "natural_cn",
+      "prompt": "导出上个月部门考勤统计，标记异常打卡和缺勤记录。",
+      "should_trigger": true,
+      "expected_skill": "lark-attendance",
+      "reason": "Lark attendance export with anomaly records."
+    },
+    {
+      "id": "lark-okr-cn",
+      "language": "zh-CN",
+      "category": "natural_cn",
+      "prompt": "帮我创建 Q2 的 OKR，目标：提升系统可用性到 99.9%，设置 3 个 KR 和权重。",
+      "should_trigger": true,
+      "expected_skill": "lark-okr",
+      "reason": "Lark OKR creation with KRs and weight."
+    },
+    {
+      "id": "lark-minutes-cn",
+      "language": "zh-CN",
+      "category": "natural_cn",
+      "prompt": "把刚才会议的录音转成文字纪要，提取待办项和决议。",
+      "should_trigger": true,
+      "expected_skill": "lark-minutes",
+      "reason": "Lark meeting minutes with transcription and action items."
+    },
+    {
+      "id": "lark-slides-cn",
+      "language": "zh-CN",
+      "category": "natural_cn",
+      "prompt": "用飞书幻灯片做一个 Q2 复盘 PPT，包含数据图表、团队总结和下季度规划。",
+      "should_trigger": true,
+      "expected_skill": "lark-slides",
+      "reason": "Lark slides presentation creation."
+    },
+    {
+      "id": "lark-drive-cn",
+      "language": "zh-CN",
+      "category": "natural_cn",
+      "prompt": "创建一个共享文件夹，上传发布包和签名文件，设置访问密码和有效期。",
+      "should_trigger": true,
+      "expected_skill": "lark-drive",
+      "reason": "Lark drive folder with sharing, upload, access control."
+    },
+    {
+      "id": "lark-event-cn",
+      "language": "zh-CN",
+      "category": "natural_cn",
+      "prompt": "订阅飞书的审批结果通知事件，当审批被驳回时自动发消息通知申请人。",
+      "should_trigger": true,
+      "expected_skill": "lark-event",
+      "reason": "Lark event subscription for approval notifications."
+    },
+    {
+      "id": "lark-openapi-cn",
+      "language": "zh-CN",
+      "category": "natural_cn",
+      "prompt": "lark-cli 没有封装这个 API，帮我直接查飞书 OpenAPI 文档找到原生的批量导入接口。",
+      "should_trigger": true,
+      "expected_skill": "lark-openapi-explorer",
+      "reason": "Lark OpenAPI exploration for unexposed native APIs."
+    },
+    {
+      "id": "lark-shared-cn",
+      "language": "zh-CN",
+      "category": "natural_cn",
+      "prompt": "帮我总结下飞书各个模块的 lark-cli 命令格式和通用参数。",
+      "should_trigger": true,
+      "expected_skill": "lark-shared",
+      "reason": "Lark shared CLI patterns across modules."
+    },
+
+    {
+      "id": "docx-cn-report",
+      "language": "zh-CN",
+      "category": "natural_cn",
+      "prompt": "生成一份项目结题报告，包含封面、目录、图表、代码块和参考文献。",
+      "should_trigger": true,
+      "expected_skill": "docx",
+      "reason": "Word document creation with cover, TOC, charts, code blocks."
+    },
+    {
+      "id": "docx-en-template",
+      "language": "en",
+      "category": "natural_en",
+      "prompt": "Create a Word document from a template, populate mail merge fields, add headers/footers, and export as PDF.",
+      "should_trigger": true,
+      "expected_skill": "docx",
+      "reason": "Word document template with mail merge, headers, PDF export."
+    },
+    {
+      "id": "docx-manual",
+      "language": "zh-CN",
+      "category": "manual_invocation",
+      "prompt": "使用 docx 帮我从这些数据生成一份带图表的周报。",
+      "should_trigger": true,
+      "expected_skill": "docx",
+      "reason": "Explicit skill invocation."
+    },
+
+    {
+      "id": "xlsx-cn-analysis",
+      "language": "zh-CN",
+      "category": "natural_cn",
+      "prompt": "分析这份销售数据 Excel，做透视表、条件格式、数据验证，再生成趋势图表。",
+      "should_trigger": true,
+      "expected_skill": "xlsx",
+      "reason": "Excel analysis with pivot tables, conditional formatting, charts."
+    },
+    {
+      "id": "xlsx-en-formula",
+      "language": "en",
+      "category": "natural_en",
+      "prompt": "Build a financial model spreadsheet with complex formulas, named ranges, data validation, and pivot charts.",
+      "should_trigger": true,
+      "expected_skill": "xlsx",
+      "reason": "Excel financial model with formulas, named ranges, charts."
+    },
+    {
+      "id": "xlsx-manual",
+      "language": "zh-CN",
+      "category": "manual_invocation",
+      "prompt": "使用 xlsx 帮我合并这些 CSV 到一个带格式的 Excel 文件。",
+      "should_trigger": true,
+      "expected_skill": "xlsx",
+      "reason": "Explicit skill invocation."
+    },
+
+    {
+      "id": "pdf-cn-extract",
+      "language": "zh-CN",
+      "category": "natural_cn",
+      "prompt": "从这份 PDF 合同里提取关键条款、签名和水印信息，生成结构化 JSON。",
+      "should_trigger": true,
+      "expected_skill": "pdf",
+      "reason": "PDF extraction of clauses, signatures, watermarks to structured JSON."
+    },
+    {
+      "id": "pdf-en-form-fill",
+      "language": "en",
+      "category": "natural_en",
+      "prompt": "Fill this PDF form programmatically, add a digital signature, set metadata, and compress for email delivery.",
+      "should_trigger": true,
+      "expected_skill": "pdf",
+      "reason": "PDF form filling, digital signature, metadata, compression."
+    },
+    {
+      "id": "pdf-manual",
+      "language": "zh-CN",
+      "category": "manual_invocation",
+      "prompt": "使用 pdf 把这批扫描件合并成一个带目录的 PDF。",
+      "should_trigger": true,
+      "expected_skill": "pdf",
+      "reason": "Explicit skill invocation."
+    },
+
+    {
+      "id": "pptx-cn-presentation",
+      "language": "zh-CN",
+      "category": "natural_cn",
+      "prompt": "生成一份投资人 Pitch Deck，包含数据可视化、团队介绍、市场分析和财务预测。",
+      "should_trigger": true,
+      "expected_skill": "pptx",
+      "reason": "PowerPoint pitch deck with data visualization, market analysis."
+    },
+    {
+      "id": "pptx-en-brand",
+      "language": "en",
+      "category": "natural_en",
+      "prompt": "Create a branded PowerPoint template with master slides, custom color palette, consistent typography, and smart art.",
+      "should_trigger": true,
+      "expected_skill": "pptx",
+      "reason": "PowerPoint brand template with master slides, colors, typography."
+    },
+    {
+      "id": "pptx-manual",
+      "language": "zh-CN",
+      "category": "manual_invocation",
+      "prompt": "使用 pptx 把这批数据可视化做成演示文稿动画。",
+      "should_trigger": true,
+      "expected_skill": "pptx",
+      "reason": "Explicit skill invocation."
+    },
+
+    {
+      "id": "ui-cn-component",
+      "language": "zh-CN",
+      "category": "natural_cn",
+      "prompt": "设计一套后台管理系统的组件库，包括按钮、表单、表格、弹窗，遵循 8pt 栅格系统。",
+      "should_trigger": true,
+      "expected_skill": "ui-design",
+      "reason": "UI design system with component library, 8pt grid."
+    },
+    {
+      "id": "ui-en-accessibility",
+      "language": "en",
+      "category": "natural_en",
+      "prompt": "Audit this dashboard for WCAG 2.1 AA compliance, improve color contrast, keyboard navigation, and screen reader support.",
+      "should_trigger": true,
+      "expected_skill": "ui-design",
+      "reason": "UI accessibility audit with WCAG, contrast, navigation."
+    },
+    {
+      "id": "ui-manual",
+      "language": "zh-CN",
+      "category": "manual_invocation",
+      "prompt": "使用 ui-design 帮我优化这个登录页面的视觉层次和交互反馈。",
+      "should_trigger": true,
+      "expected_skill": "ui-design",
+      "reason": "Explicit skill invocation."
+    },
+
+    {
+      "id": "pm-cn-prd",
+      "language": "zh-CN",
+      "category": "natural_cn",
+      "prompt": "帮我写一份用户故事地图和 PRD，包含竞品分析、功能优先级和上线指标。",
+      "should_trigger": true,
+      "expected_skill": "product-manager",
+      "reason": "Product management with user stories, PRD, competitive analysis."
+    },
+    {
+      "id": "pm-en-roadmap",
+      "language": "en",
+      "category": "natural_en",
+      "prompt": "Build a product roadmap with OKRs, stakeholder analysis, feature prioritization, and success metrics.",
+      "should_trigger": true,
+      "expected_skill": "product-manager",
+      "reason": "Product roadmap with OKRs, prioritization, success metrics."
+    },
+    {
+      "id": "pm-manual",
+      "language": "zh-CN",
+      "category": "manual_invocation",
+      "prompt": "使用 product-manager 帮我做功能需求的优先级排序。",
+      "should_trigger": true,
+      "expected_skill": "product-manager",
+      "reason": "Explicit skill invocation."
+    },
+
+    {
+      "id": "interview-cn-java",
+      "language": "zh-CN",
+      "category": "natural_cn",
+      "prompt": "帮我准备 Java 面试，重点复习 JVM 内存模型、MySQL 索引优化和 Spring 源码。",
+      "should_trigger": true,
+      "expected_skill": "interview-prep",
+      "reason": "Interview preparation for Java, JVM, MySQL, Spring."
+    },
+    {
+      "id": "interview-en-system-design",
+      "language": "en",
+      "category": "natural_en",
+      "prompt": "Practice system design interview questions covering distributed systems, caching, database sharding, and microservices.",
+      "should_trigger": true,
+      "expected_skill": "interview-prep",
+      "reason": "System design interview practice."
+    },
+    {
+      "id": "interview-manual",
+      "language": "zh-CN",
+      "category": "manual_invocation",
+      "prompt": "使用 interview-prep 帮我模拟一次后端开发技术面。",
+      "should_trigger": true,
+      "expected_skill": "interview-prep",
+      "reason": "Explicit skill invocation."
+    },
+
+    {
+      "id": "pua-cn-pressure",
+      "language": "zh-CN",
+      "category": "natural_cn",
+      "prompt": "已经失败两次了，你到底行不行？给我打起精神穷尽一切可能解决这个问题。",
+      "should_trigger": true,
+      "expected_skill": "pua",
+      "reason": "PUA pressure mode with repeated failures and demanding tone."
+    },
+    {
+      "id": "pua-cn-motivation",
+      "language": "zh-CN",
+      "category": "natural_cn",
+      "prompt": "加油，别偷懒，把这个问题彻底搞定，我只要你成功的结果。",
+      "should_trigger": true,
+      "expected_skill": "pua",
+      "reason": "PUA motivation with push for results."
+    },
+    {
+      "id": "pua-manual",
+      "language": "zh-CN",
+      "category": "manual_invocation",
+      "prompt": "使用 pua 模式，我对当前进度很不满意。",
+      "should_trigger": true,
+      "expected_skill": "pua",
+      "reason": "Explicit skill invocation."
+    },
+
+    {
+      "id": "lark-workflow-standup-cn",
+      "language": "zh-CN",
+      "category": "natural_cn",
+      "prompt": "帮我生成今天的站会报告，统计每个人昨天完成的任务、今天的计划和阻塞项。",
+      "should_trigger": true,
+      "expected_skill": "lark-workflow-standup-report",
+      "reason": "Lark standup report workflow."
+    },
+    {
+      "id": "lark-workflow-meeting-cn",
+      "language": "zh-CN",
+      "category": "natural_cn",
+      "prompt": "帮我总结上周所有会议的纪要和待办事项，按项目归类。",
+      "should_trigger": true,
+      "expected_skill": "lark-workflow-meeting-summary",
+      "reason": "Lark meeting summary workflow."
+    },
+    {
+      "id": "lark-skill-maker-cn",
+      "language": "zh-CN",
+      "category": "natural_cn",
+      "prompt": "帮我制作一个新的飞书 Skill，能够定时检查审批状态并发送提醒。",
+      "should_trigger": true,
+      "expected_skill": "lark-skill-maker",
+      "reason": "Lark skill creation for approval reminder workflow."
+    },
+    {
+      "id": "lark-whiteboard-cn",
+      "language": "zh-CN",
+      "category": "natural_cn",
+      "prompt": "在飞书白板上画一个系统架构图，包含服务间调用关系和数据库。",
+      "should_trigger": true,
+      "expected_skill": "lark-whiteboard",
+      "reason": "Lark whiteboard architecture diagram."
+    },
+
+    {
+      "id": "router-cn-cross-domain",
+      "language": "zh-CN",
+      "category": "router_fallback",
+      "prompt": "这个需求同时涉及写 API、审计代码安全、出 Word 报告，不知道先从哪个 skill 开始。",
+      "should_trigger": true,
+      "expected_skill": "skill-router",
+      "reason": "Cross-domain request spanning API design, code audit, and document generation."
+    },
+    {
+      "id": "router-cn-unsure",
+      "language": "zh-CN",
+      "category": "router_fallback",
+      "prompt": "我不确定该用哪个 skill，这件事有数据库改表、Go 代码重构和性能调优，帮我分流。",
+      "should_trigger": true,
+      "expected_skill": "skill-router",
+      "reason": "User explicitly unsure which skill to use for multi-domain task."
+    },
+    {
+      "id": "router-cn-ambiguous",
+      "language": "zh-CN",
+      "category": "router_fallback",
+      "prompt": "帮我选择技能，我需要做移动端安全审计和飞书集成开发。",
+      "should_trigger": true,
+      "expected_skill": "skill-router",
+      "reason": "Explicit skill selection request for mixed domains."
+    },
+    {
+      "id": "router-en-which-skill",
+      "language": "en",
+      "category": "natural_en",
+      "prompt": "Which skill should I use for building a Flutter app with API backend, security audit, and PDF report generation?",
+      "should_trigger": true,
+      "expected_skill": "skill-router",
+      "reason": "English routing request for cross-domain Flutter/API/security/document task."
+    },
+    {
+      "id": "router-manual-cn",
+      "language": "zh-CN",
+      "category": "manual_invocation",
+      "prompt": "使用 skill-router 帮我分流，这个项目跨了前端、后端和安全三个领域。",
+      "should_trigger": true,
+      "expected_skill": "skill-router",
+      "reason": "Explicit router invocation."
+    },
+
+    {
+      "id": "hard-api-cn-colloquial",
+      "language": "zh-CN",
+      "category": "hard_paraphrase",
+      "prompt": "这个接口要给第三方用，帮我把请求怎么进来、返回什么、出错怎么办、老版本怎么兼容都定清楚。",
+      "should_trigger": true,
+      "expected_skill": "api-design",
+      "reason": "Colloquial API design request without REST/endpoint keywords."
+    },
+    {
+      "id": "hard-audit-cn-colloquial",
+      "language": "zh-CN",
+      "category": "hard_paraphrase",
+      "prompt": "帮我看看这段代码有没有能被人利用的漏洞，尤其是用户输入的地方和权限判断的地方。",
+      "should_trigger": true,
+      "expected_skill": "code-audit",
+      "reason": "Colloquial security audit without vulnerability keywords."
+    },
+    {
+      "id": "hard-db-cn-colloquial",
+      "language": "zh-CN",
+      "category": "hard_paraphrase",
+      "prompt": "这个表数据量上来了查询很慢，帮我看看怎么加速，加些索引或者换个查询方式。",
+      "should_trigger": true,
+      "expected_skill": "db-design",
+      "reason": "Colloquial DB optimization without SQL/index specific terms."
+    },
+    {
+      "id": "hard-lark-cn-colloquial",
+      "language": "zh-CN",
+      "category": "hard_paraphrase",
+      "prompt": "帮我查下那个请假流程走到哪了，催一下还没批的人。",
+      "should_trigger": true,
+      "expected_skill": "lark-approval",
+      "reason": "Colloquial Lark approval query without specific CLI terms."
+    },
+    {
+      "id": "hard-docx-cn-colloquial",
+      "language": "zh-CN",
+      "category": "hard_paraphrase",
+      "prompt": "帮我把这些内容整理成正式文档，排版好看点，加上封面和目录。",
+      "should_trigger": true,
+      "expected_skill": "docx",
+      "reason": "Colloquial document creation without Word/docx keywords."
+    },
+    {
+      "id": "hard-ppt-cn-colloquial",
+      "language": "zh-CN",
+      "category": "hard_paraphrase",
+      "prompt": "下周一要给老板汇报，帮我把这几个要点做成演示稿，配上数据和图表。",
+      "should_trigger": true,
+      "expected_skill": "pptx",
+      "reason": "Colloquial presentation request without PPT/pptx keywords."
+    },
+    {
+      "id": "hard-interview-cn-colloquial",
+      "language": "zh-CN",
+      "category": "hard_paraphrase",
+      "prompt": "马上要去面字节了，后端方向，帮我突击一下常考的算法和系统设计题。",
+      "should_trigger": true,
+      "expected_skill": "interview-prep",
+      "reason": "Colloquial interview prep without exam subject keywords."
+    },
+    {
+      "id": "hard-reverse-cn-colloquial",
+      "language": "zh-CN",
+      "category": "hard_paraphrase",
+      "prompt": "这个程序不给我看它的核心逻辑，帮我把它的保护拆掉，看看里面到底怎么实现的。",
+      "should_trigger": true,
+      "expected_skill": "reverse-engineering",
+      "reason": "Colloquial reverse engineering request without tool names."
+    },
+    {
+      "id": "hard-git-cn-colloquial",
+      "language": "zh-CN",
+      "category": "hard_paraphrase",
+      "prompt": "我的代码历史乱七八糟的，帮我整理一下提交记录，该合并的合并，改拆分注释写清楚。",
+      "should_trigger": true,
+      "expected_skill": "git-workflow",
+      "reason": "Colloquial Git history cleanup without specific Git commands."
+    },
+    {
+      "id": "hard-router-cn-colloquial",
+      "language": "zh-CN",
+      "category": "hard_router",
+      "prompt": "这个事有点复杂，又要写后端又要管数据库，还要保证安全性，最后还要出报告，你先帮我想想怎么搞。",
+      "should_trigger": true,
+      "expected_skill": "skill-router",
+      "reason": "Colloquial cross-domain routing without any skill names."
+    },
+
+    {
+      "id": "negative-simple-hello",
+      "language": "zh-CN",
+      "category": "negative_simple",
+      "prompt": "你好，今天过得怎么样？",
+      "should_trigger": false,
+      "expected_skill": null,
+      "reason": "Simple greeting, no skill needed."
+    },
+    {
+      "id": "negative-simple-weather",
+      "language": "zh-CN",
+      "category": "negative_unrelated",
+      "prompt": "明天北京天气如何，适不适合出门？",
+      "should_trigger": false,
+      "expected_skill": null,
+      "reason": "Weather query, unrelated to any skill domain."
+    },
+    {
+      "id": "negative-simple-math",
+      "language": "zh-CN",
+      "category": "negative_simple",
+      "prompt": "12345 乘以 67890 等于多少？",
+      "should_trigger": false,
+      "expected_skill": null,
+      "reason": "Simple math calculation, not a development task."
+    },
+    {
+      "id": "negative-simple-translate",
+      "language": "zh-CN",
+      "category": "negative_simple",
+      "prompt": "把「Hello World」翻译成中文。",
+      "should_trigger": false,
+      "expected_skill": null,
+      "reason": "Simple one-line translation, not a full document workflow."
+    },
+    {
+      "id": "negative-simple-git-status",
+      "language": "zh-CN",
+      "category": "negative_simple",
+      "prompt": "git status 命令有什么用？",
+      "should_trigger": false,
+      "expected_skill": null,
+      "reason": "Simple definition query, not a Git workflow task."
+    },
+    {
+      "id": "negative-simple-definition-api",
+      "language": "en",
+      "category": "negative_near_miss",
+      "prompt": "What does REST API stand for?",
+      "should_trigger": false,
+      "expected_skill": null,
+      "reason": "Simple acronym definition, not API design task."
+    },
+    {
+      "id": "negative-simple-definition-docker",
+      "language": "en",
+      "category": "negative_near_miss",
+      "prompt": "Explain what Docker is in one paragraph.",
+      "should_trigger": false,
+      "expected_skill": null,
+      "reason": "Simple explanation, not a backend engineering task."
+    },
+    {
+      "id": "negative-simple-recipes",
+      "language": "zh-CN",
+      "category": "negative_unrelated",
+      "prompt": "给我一个番茄炒蛋的菜谱。",
+      "should_trigger": false,
+      "expected_skill": null,
+      "reason": "Cooking recipe is completely unrelated to any skill."
+    },
+    {
+      "id": "negative-syntax-fix-single",
+      "language": "en",
+      "category": "negative_simple",
+      "prompt": "Fix this one line: const x = [1,2,3;",
+      "should_trigger": false,
+      "expected_skill": null,
+      "reason": "Trivial single-line syntax fix, doesn't need a workflow skill."
+    },
+    {
+      "id": "negative-json-format",
+      "language": "en",
+      "category": "negative_simple",
+      "prompt": "Prettify this JSON: {\"a\":1,\"b\":2}",
+      "should_trigger": false,
+      "expected_skill": null,
+      "reason": "Simple formatting task."
+    },
+    {
+      "id": "negative-near-miss-security-def",
+      "language": "zh-CN",
+      "category": "negative_near_miss",
+      "prompt": "什么是 XSS 攻击？请用一句话解释。",
+      "should_trigger": false,
+      "expected_skill": null,
+      "reason": "Simple security definition, not a code audit task."
+    },
+    {
+      "id": "negative-near-miss-python-version",
+      "language": "en",
+      "category": "negative_near_miss",
+      "prompt": "What version of Python should I install?",
+      "should_trigger": false,
+      "expected_skill": null,
+      "reason": "Simple version question, not a Python development task."
+    },
+    {
+      "id": "negative-near-miss-go-def",
+      "language": "en",
+      "category": "negative_near_miss",
+      "prompt": "What is a goroutine?",
+      "should_trigger": false,
+      "expected_skill": null,
+      "reason": "Simple concept definition, not a Go development task."
+    },
+    {
+      "id": "negative-near-miss-flutter-compare",
+      "language": "zh-CN",
+      "category": "negative_near_miss",
+      "prompt": "Flutter 和 React Native 哪个更好？",
+      "should_trigger": false,
+      "expected_skill": null,
+      "reason": "Technology comparison opinion, not Flutter development task."
+    },
+    {
+      "id": "negative-near-miss-lark-info",
+      "language": "zh-CN",
+      "category": "negative_near_miss",
+      "prompt": "飞书的免费版和付费版有什么区别？",
+      "should_trigger": false,
+      "expected_skill": null,
+      "reason": "Product pricing question, not a Lark operation task."
+    }
+  ]
+}

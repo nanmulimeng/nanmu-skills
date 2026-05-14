@@ -1,6 +1,6 @@
 ---
 name: go-dev
-description: Go语言开发技能 - Go语法、并发编程、goroutine/channel、错误处理、模块管理、测试、性能优化。当你涉及Go/Golang代码开发、goroutine、channel、go mod、接口设计、泛型、struct设计时必须使用此技能。即使用户只是说"写个Go函数"或"改下Go代码"，也应触发。
+description: Go语言开发技能 - Go语法、并发编程、goroutine/channel、错误处理、模块管理、测试、性能优化。当你涉及Go/Golang代码开发、goroutine、channel、go mod、接口设计、泛型、struct设计时必须使用此技能。即使用户只是说"写个Go函数"或"改下Go代码"，也应触发。如果未自动触发，手动写：`使用 go-dev`。
 ---
 
 # Go语言开发技能 (Go Development Skill)

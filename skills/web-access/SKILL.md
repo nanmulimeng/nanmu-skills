@@ -1,6 +1,6 @@
 ---
 name: web-access
-description: "网页浏览与自动化技能 - Chrome DevTools Protocol (CDP) 浏览器自动化、WebSearch搜索、WebFetch抓取、Jina预处理。当你涉及网页内容抓取、网站自动化操作、浏览器交互、需登录态或JS渲染的内容访问（小红书/微信公众号文章）、Chrome远程调试、CDP操作时必须使用此技能。即使用户只是说"打开这个网页"或"帮我搜一下"或"抓取内容"，也应触发。"
+description: "网页浏览与自动化技能 - Chrome DevTools Protocol (CDP) 浏览器自动化、WebSearch搜索、WebFetch抓取、Jina预处理。当你涉及网页内容抓取、网站自动化操作、浏览器交互、需登录态或JS渲染的内容访问（小红书/微信公众号文章）、Chrome远程调试、CDP操作时必须使用此技能。即使用户只是说"打开这个网页"或"帮我搜一下"或"抓取内容"，也应触发。如果未自动触发，手动写：`使用 web-access`。"
 license: MIT
 ---
 

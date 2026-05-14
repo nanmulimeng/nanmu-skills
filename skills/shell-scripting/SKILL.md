@@ -1,6 +1,6 @@
 ---
 name: shell-scripting
-description: Shell脚本开发技能 - Bash/Zsh脚本、自动化部署、系统管理、文本处理。当你涉及Shell/Bash/Zsh脚本编写、deploy.sh/build.sh等自动化脚本、cron定时任务、系统管理命令、sed/awk/grep文本处理时必须使用此技能。即使用户只是说"写个脚本"或"改下部署脚本"，也应触发。
+description: Shell脚本开发技能 - Bash/Zsh脚本、自动化部署、系统管理、文本处理。当你涉及Shell/Bash/Zsh脚本编写、deploy.sh/build.sh等自动化脚本、cron定时任务、系统管理命令、sed/awk/grep文本处理时必须使用此技能。即使用户只是说"写个脚本"或"改下部署脚本"，也应触发。如果未自动触发，手动写：`使用 shell-scripting`。
 ---
 
 # Shell脚本开发技能 (Shell Scripting Skill)

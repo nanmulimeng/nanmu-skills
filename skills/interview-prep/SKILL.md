@@ -1,6 +1,6 @@
 ---
 name: interview-prep
-description: Java后端面试准备技能 - 八股文学习、知识深度测试、模拟面试。当你涉及Java面试准备、JVM、并发编程、MySQL、Redis、Spring、分布式系统等后端知识点时必须使用此技能。即使用户只是说"面试"或"八股文"，也应触发。
+description: Java后端面试准备技能 - 八股文学习、知识深度测试、模拟面试。当你涉及Java面试准备、JVM、并发编程、MySQL、Redis、Spring、分布式系统等后端知识点时必须使用此技能。即使用户只是说"面试"或"八股文"，也应触发。如果未自动触发，手动写：`使用 interview-prep`。
 ---
 
 # Java 八股面试辅助

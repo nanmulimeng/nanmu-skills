@@ -1,6 +1,6 @@
 ---
 name: test-engineering
-description: 测试工程技能 - TDD流程、测试策略、覆盖率、Mock规范、回归测试。当你涉及测试用例、覆盖率、TDD、Mock、断言、回归测试时必须使用此技能。即使用户只是说"加个测试"或"这个bug要测试"，也应触发。
+description: 测试工程技能 - TDD流程、测试策略、覆盖率、Mock规范、回归测试。当你涉及测试用例、覆盖率、TDD、Mock、断言、回归测试时必须使用此技能。即使用户只是说"加个测试"或"这个bug要测试"，也应触发。如果未自动触发，手动写：`使用 test-engineering`。
 ---
 
 # 测试工程技能 (Test Engineering Skill)

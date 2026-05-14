@@ -1,7 +1,7 @@
 ---
 name: lark-skill-maker
 version: 1.0.0
-description: "飞书技能创建：为 lark-cli 创建自定义 Skill，将飞书 API 操作封装成可复用的 SKILL.md。当用户需要把飞书 API 封装成可复用 Skill、编写多步 API 编排流程时使用。即使用户只是说'封装个飞书技能'或'创建新 skill'，也应触发。"
+description: "飞书技能创建：为 lark-cli 创建自定义 Skill，将飞书 API 操作封装成可复用的 SKILL.md。当用户需要把飞书 API 封装成可复用 Skill、编写多步 API 编排流程时使用。即使用户只是说'封装个飞书技能'或'创建新 skill'，也应触发。如果未自动触发，手动写：`使用 lark-skill-maker`。"
 metadata:
   requires:
     bins: ["lark-cli"]

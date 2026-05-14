@@ -1,6 +1,6 @@
 ---
 name: python-dev
-description: Python开发技能 - Python 3.12+语法、类型注解、async/await异步编程、Pydantic数据校验、FastAPI/Django Web框架、SQLAlchemy ORM、pytest测试、虚拟环境、包管理、性能优化。当你涉及Python代码开发、异步编程、类型注解、数据校验、Web API、ORM、自动化脚本时必须使用此技能。即使用户只是说"写个Python脚本"或"改下Python代码"，也应触发。
+description: Python开发技能 - Python 3.12+语法、类型注解、async/await异步编程、Pydantic数据校验、FastAPI/Django Web框架、SQLAlchemy ORM、pytest测试、虚拟环境、包管理、性能优化。当你涉及Python代码开发、异步编程、类型注解、数据校验、Web API、ORM、自动化脚本时必须使用此技能。即使用户只是说"写个Python脚本"或"改下Python代码"，也应触发。如果未自动触发，手动写：`使用 python-dev`。
 ---
 
 # Python开发技能 (Python Development Skill)

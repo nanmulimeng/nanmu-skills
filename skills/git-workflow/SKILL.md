@@ -1,6 +1,6 @@
 ---
 name: git-workflow
-description: Git工作流技能 - 提交规范、分支策略、冲突解决、提交验证。当你涉及git commit、git push、分支操作、合并、提交信息编写、代码提交时必须使用此技能。即使用户只是说"提交一下"或"git"，也应触发。
+description: Git工作流技能 - 提交规范、分支策略、冲突解决、提交验证。当你涉及git commit、git push、分支操作、合并、提交信息编写、代码提交时必须使用此技能。即使用户只是说"提交一下"或"git"，也应触发。如果未自动触发，手动写：`使用 git-workflow`。
 ---
 
 # Git工作流技能 (Git Workflow Skill)

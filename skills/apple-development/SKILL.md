@@ -1,6 +1,6 @@
 ---
 name: apple-development
-description: Apple原生开发技能 - Swift/SwiftUI/AppKit/UIKit原生组件、API选择(URLSession/Keychain/Core Data/SwiftData)、权限配置(Info.plist/entitlements)、图标规格(Asset Catalog/Icon Composer/SF Symbols)、Liquid Glass效果、上架规则(App Store Connect/TestFlight/审核/证书签名/Provisioning Profile)、macOS/iOS平台特性(沙盒/公证/notarization)、Swift Concurrency(async/await/Actor)、状态管理(@State/@StateObject/@ObservedObject/@EnvironmentObject)。当你涉及Swift/SwiftUI/AppKit/UIKit原生开发、Xcode项目配置、证书/签名/Provisioning Profile、权限entitlements申请、图标资源制作/SF Symbols、App Store上架/审核/TestFlight、Liquid Glass效果、macOS/iOS打包发布时必须使用此技能。即使用户只是说"用原生的"或"加个SwiftUI视图"或"上架App Store"或"打包ipa"，也应触发。
+description: Apple原生开发技能 - Swift/SwiftUI/AppKit/UIKit原生组件、API选择(URLSession/Keychain/Core Data/SwiftData)、权限配置(Info.plist/entitlements)、图标规格(Asset Catalog/Icon Composer/SF Symbols)、Liquid Glass效果、上架规则(App Store Connect/TestFlight/审核/证书签名/Provisioning Profile)、macOS/iOS平台特性(沙盒/公证/notarization)、Swift Concurrency(async/await/Actor)、状态管理(@State/@StateObject/@ObservedObject/@EnvironmentObject)。当你涉及Swift/SwiftUI/AppKit/UIKit原生开发、Xcode项目配置、证书/签名/Provisioning Profile、权限entitlements申请、图标资源制作/SF Symbols、App Store上架/审核/TestFlight、Liquid Glass效果、macOS/iOS打包发布时必须使用此技能。即使用户只是说"用原生的"或"加个SwiftUI视图"或"上架App Store"或"打包ipa"，也应触发。如果未自动触发，手动写：`使用 apple-development`。
 ---
 
 # Apple原生开发技能 (Apple Development Skill)

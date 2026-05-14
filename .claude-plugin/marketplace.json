@@ -111,6 +111,15 @@
         "./skills/interview-prep",
         "./skills/pua"
       ]
+    },
+    {
+      "name": "meta",
+      "description": "元技能：技能路由器——当需求跨域或不确定用哪个技能时的兜底分流",
+      "source": "./",
+      "strict": false,
+      "skills": [
+        "./skills/skill-router"
+      ]
     }
   ]
 }

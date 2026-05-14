@@ -1,6 +1,6 @@
 ---
 name: xlsx
-description: 创建、读取、编辑、分析 Excel 电子表格（.xlsx 文件）。当你涉及 Excel、电子表格、创建表格、读取 .xlsx、数据分析时必须使用此技能。即使用户只是说"处理这个 xlsx"或"生成一份 Excel 报表"，也应触发。
+description: 创建、读取、编辑、分析 Excel 电子表格（.xlsx 文件）。当你涉及 Excel、电子表格、创建表格、读取 .xlsx、数据分析时必须使用此技能。即使用户只是说"处理这个 xlsx"或"生成一份 Excel 报表"，也应触发。如果未自动触发，手动写：`使用 xlsx`。
 ---
 
 # XLSX Skill - Excel Spreadsheet Processing
