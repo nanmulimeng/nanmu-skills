@@ -110,13 +110,6 @@ description: "Use when / 当用户请求: 全面代码安全审计、Web/API/Gra
 - `spa-pentest`
 - `web-pentest`
 
-## 本机相近 Skill
-- `source-command-code-audit`
-- `semgrep`
-- `codeql`
-- `variant-analysis`
-- `burpsuite-project-parser`
-
 ## 输出合同
 ```markdown
 完成：

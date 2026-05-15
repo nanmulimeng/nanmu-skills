@@ -103,12 +103,6 @@ description: "Use when / 当用户请求: 全面云安全、容器/Kubernetes、
 - `serverless-security`
 - `supply-chain-security`
 
-## 本机相近 Skill
-- `supply-chain-risk-auditor`
-- `insecure-defaults`
-- `agentic-actions-auditor`
-- `devcontainer-setup`
-
 ## 输出合同
 ```markdown
 完成：

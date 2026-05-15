@@ -106,13 +106,6 @@ description: "Use when / 当用户请求: 全面二进制/逆向/内核/移动/I
 - `mobile-security`
 - `reverse-engineering`
 
-## 本机相近 Skill
-- `source-command-binary-exploit`
-- `source-command-iot-ics`
-- `source-command-mobile-security`
-- `constant-time-analysis`
-- `wycheproof`
-
 ## 输出合同
 ```markdown
 完成：

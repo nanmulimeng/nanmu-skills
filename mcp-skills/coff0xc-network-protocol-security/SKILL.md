@@ -93,10 +93,6 @@ description: "Use when / 当用户请求: 全面网络协议、TLS/DNS/TCP/UDP/Q
 - `network-protocol`
 - `wireless-security`
 
-## 本机相近 Skill
-- `crypto-protocol-diagram`
-- `mermaid-to-proverif`
-
 ## 输出合同
 ```markdown
 完成：

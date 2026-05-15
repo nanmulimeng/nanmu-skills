@@ -88,11 +88,6 @@ description: "Use when / 当用户请求: 全面 UI 设计、前端体验、PDF/
 - `pdf`
 - `quick-translate`
 
-## 本机相近 Skill
-- `UIdesign`
-- `pdf`
-- `source-command-quick-translate`
-
 ## 输出合同
 ```markdown
 完成：

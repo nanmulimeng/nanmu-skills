@@ -101,11 +101,6 @@ description: "Use when / 当用户请求: 全面身份安全、零信任、AD/Ke
 - `privilege-escalation`
 - `zero-trust`
 
-## 本机相近 Skill
-- `source-command-ad-pentest`
-- `source-command-privesc`
-- `zeroize-audit`
-
 ## 输出合同
 ```markdown
 完成：
