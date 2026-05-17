@@ -81,6 +81,7 @@ func parseSkillFile(path string) (*Skill, error) {
 
 func parseFrontmatter(sk *Skill, lines []string) {
 	for _, line := range lines {
+		line = strings.TrimRight(line, "\r")
 		parts := strings.SplitN(line, ":", 2)
 		if len(parts) != 2 {
 			continue
