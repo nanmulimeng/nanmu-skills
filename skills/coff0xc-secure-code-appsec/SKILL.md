@@ -1,9 +1,42 @@
 ---
 name: coff0xc-secure-code-appsec
-description: "Use when / 当用户请求: 全面代码安全审计、Web/API/GraphQL/OAuth/浏览器/SPA/LLM 安全、后门检测和授权应用安全验证工作流。触发：代码审计、危险函数、source/sink、污点分析、Web 安全、API 安全、GraphQL、OAuth、CSP、CORS、Cookie、Prompt 注入、越权、SSRF、XSS、SQLi、后门、Webshell、绕过登录、看到别人数据、代码入口、数据流、access control、authorization bypass。 Covered source aliases / 来源别名: api-discovery, api-security-test, backdoor-detector, browser-security, code-audit, graphql-pentest, llm-red-teaming, oauth-security, spa-pentest, web-pentest. Capability domains / 能力域: 入口梳理, Source/Sink, 认证授权, Web/API 漏洞, 浏览器/SPA, GraphQL, LLM/Agent 安全, 后门检测. If this skill does not auto-trigger, user can manually invoke: 使用 coff0xc-secure-code-appsec."
+description: "Use when / 当用户请求: 全面代码安全审计、Web/API/GraphQL/OAuth/浏览器/SPA/LLM 安全、后门检测和授权应用安全验证工作流。触发：代码审计、危险函数、source/sink、污点分析、Web 安全、API 安全、GraphQL、OAuth、CSP、CORS、Cookie、Prompt 注入、越权、权限越权、权限模型、SSRF、XSS、SQLi、后门、Webshell、绕过登录、看到别人数据、代码入口、数据流、access control、permission model、authorization bypass、security regression、安全回归。 Covered source aliases / 来源别名: api-discovery, api-security-test, backdoor-detector, browser-security, code-audit, graphql-pentest, llm-red-teaming, oauth-security, spa-pentest, web-pentest. Capability domains / 能力域: 入口梳理, Source/Sink, 认证授权, Web/API 漏洞, 浏览器/SPA, GraphQL, LLM/Agent 安全, 后门检测. If this skill does not auto-trigger, user can manually invoke: 使用 coff0xc-secure-code-appsec."
 ---
 
 # coff0xc-secure-code-appsec
+
+## 能力定位
+面向代码和应用安全的证据化审计能力。它把源码、路由、配置、扫描结果和日志转成可验证发现、修复建议和回归检查。
+
+## 能交付什么
+- 安全发现列表：位置、影响、证据、复现条件
+- source/sink 或权限链路说明
+- 修复建议、测试用例、检测/日志建议
+- 误报判断和剩余风险
+
+## 可以接收什么输入
+- 源码仓库、routes/controllers/resolvers、auth middleware
+- Burp 项目、SARIF、扫描结果、日志、配置
+- 漏洞线索、越权现象、Prompt 注入或后门疑点
+
+## 放心使用的边界
+- 只处理自有或明确授权资产、本地代码和防御建设
+- 不提供未授权利用、凭据获取、持久化、规避检测或外传步骤
+- 主动扫描、认证绕过测试和外部回连必须先确认授权范围
+- 安全类能力默认只用于授权、防御、检测、加固、验证和报告；不提供未授权攻击、凭据窃取、持久化、规避检测、C2、钓鱼收集、数据外传或破坏性步骤。
+
+## 为什么可以放心
+- 每个发现必须有代码/配置/日志证据
+- 区分已验证、高可信、推断和未知
+- 安全输出默认包含修复、检测和验证闭环
+
+## 典型使用方式
+```text
+使用 coff0xc-secure-code-appsec 审计这个 Web/API 项目的认证和越权风险。
+使用 coff0xc-secure-code-appsec 看 source/sink、SSRF、XSS、SQLi 和后门迹象。
+Use coff0xc-secure-code-appsec to triage this SARIF report and remove false positives.
+```
+
 
 ## 目标
 以代码和证据为中心定位应用安全问题，给出可验证修复；对高风险请求保持防御化和授权边界。
@@ -109,6 +142,13 @@ description: "Use when / 当用户请求: 全面代码安全审计、Web/API/Gra
 - `oauth-security`
 - `spa-pentest`
 - `web-pentest`
+
+## 本机相近 Skill
+- `source-command-code-audit`
+- `semgrep`
+- `codeql`
+- `variant-analysis`
+- `burpsuite-project-parser`
 
 ## 输出合同
 ```markdown
