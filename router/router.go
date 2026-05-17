@@ -13,40 +13,51 @@ func Route(m *registry.Manifest, request string) *RouteResult {
 	mustSet := make(map[string]bool)
 	result := &RouteResult{}
 
-	var scored []ScoredSkill
+	// Dynamic thresholds: short queries need lower bars
+	thresholdHigh := ThresholdHigh
+	minHits := 2
+	if len(tokens) <= 3 {
+		thresholdHigh = 3.0
+		minHits = 1
+	}
+
+	type entry struct {
+		skill *registry.Skill
+		score float64
+		hits  int
+	}
+
+	var scored []entry
 	for i := range m.Skills {
 		sk := &m.Skills[i]
-		s := Score(sk, tokens, mustSet)
-		scored = append(scored, ScoredSkill{Skill: sk, Score: s})
+		s, h := ScoreWithHits(sk, tokens)
+		scored = append(scored, entry{skill: sk, score: s, hits: h})
 	}
 
-	// First pass: determine must based on high scores
-	for _, ss := range scored {
-		if ss.Score >= ThresholdHigh {
-			result.Must = append(result.Must, ss.Skill.Slug)
-			mustSet[ss.Skill.Slug] = true
+	// First pass: must requires high score AND sufficient token hits
+	for _, e := range scored {
+		if e.score >= thresholdHigh && e.hits >= minHits {
+			result.Must = append(result.Must, e.skill.Slug)
+			mustSet[e.skill.Slug] = true
 		}
 	}
 
-	// Second pass: re-score with updated mustSet for dependency boosts
-	result.Conditional = nil
-	result.Skip = nil
-	for _, ss := range scored {
-		if mustSet[ss.Skill.Slug] {
+	// Second pass: remaining skills
+	for _, e := range scored {
+		if mustSet[e.skill.Slug] {
 			continue
 		}
-		s := Score(ss.Skill, tokens, mustSet)
-		if s >= ThresholdHigh {
-			result.Must = append(result.Must, ss.Skill.Slug)
-			mustSet[ss.Skill.Slug] = true
-		} else if s >= ThresholdLow {
-			result.Conditional = append(result.Conditional, ss.Skill.Slug)
+		if e.score >= thresholdHigh && e.hits >= minHits {
+			result.Must = append(result.Must, e.skill.Slug)
+			mustSet[e.skill.Slug] = true
+		} else if e.score >= ThresholdLow {
+			result.Conditional = append(result.Conditional, e.skill.Slug)
 		} else {
-			result.Skip = append(result.Skip, ss.Skill.Slug)
+			result.Skip = append(result.Skip, e.skill.Slug)
 		}
 	}
 
-	// Resolve dependencies
+	// Resolve dependency chains
 	resolveDeps(m, result, mustSet)
 
 	return result

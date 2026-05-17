@@ -17,14 +17,29 @@ func Tokenize(text string) []string {
 		}
 	}
 
-	// First, extract pure English/ASCII words split by whitespace
+	// Extract alphanumeric sequences from mixed text ("部署K8s" → "k8s")
+	var buf strings.Builder
+	for _, r := range text {
+		if (r >= 'a' && r <= 'z') || (r >= 'A' && r <= 'Z') || (r >= '0' && r <= '9') {
+			buf.WriteRune(r)
+		} else {
+			if buf.Len() >= 2 {
+				add(buf.String())
+			}
+			buf.Reset()
+		}
+	}
+	if buf.Len() >= 2 {
+		add(buf.String())
+	}
+
+	// Extract English words from whitespace/punctuation splits
 	words := strings.Fields(text)
 	for _, w := range words {
 		w = strings.TrimSpace(w)
 		if w == "" {
 			continue
 		}
-		// Extract English words even from mixed text like "REST API，需要"
 		clean := strings.Map(func(r rune) rune {
 			if unicode.IsPunct(r) || unicode.IsSymbol(r) ||
 				r == '，' || r == '。' || r == '！' || r == '？' ||
@@ -34,25 +49,18 @@ func Tokenize(text string) []string {
 			return r
 		}, w)
 		for _, part := range strings.Fields(clean) {
-			if isAscii(part) {
+			if isAscii(part) && len(part) >= 2 {
 				add(part)
 			}
 		}
 	}
 
-	// Extract Chinese bigrams
+	// Chinese bigrams only (no single chars — too noisy for scoring)
 	chinese := extractChinese(text)
 	runes := []rune(chinese)
 	for i := 0; i+1 < len(runes); i++ {
 		bg := string(runes[i : i+2])
 		add(bg)
-	}
-	for _, r := range runes {
-		ug := string(r)
-		if !isStop(ug) && !seen[ug] {
-			seen[ug] = true
-			tokens = append(tokens, ug)
-		}
 	}
 
 	return tokens
@@ -86,6 +94,7 @@ func isStop(w string) bool {
 		"to": true, "of": true, "in": true, "for": true, "and": true,
 		"or": true, "it": true, "on": true, "with": true, "as": true,
 		"this": true, "be": true, "by": true, "at": true, "你": true,
+		"me": true, "my": true, "no": true, "do": true, "if": true,
 	}
 	return stop[w]
 }

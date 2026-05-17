@@ -3,8 +3,8 @@ package router
 import "nanmu-skill-mcp/registry"
 
 const (
-	ThresholdHigh = 2.0
-	ThresholdLow  = 0.5
+	ThresholdHigh = 6.0
+	ThresholdLow  = 2.0
 )
 
 type ScoredSkill struct {
@@ -12,39 +12,61 @@ type ScoredSkill struct {
 	Score float64
 }
 
-func Score(sk *registry.Skill, tokens []string, mustSet map[string]bool) float64 {
+// ScoreWithHits returns score and distinct token hit count.
+func ScoreWithHits(sk *registry.Skill, tokens []string) (float64, int) {
 	score := 0.0
+	hits := 0
 
 	for _, token := range tokens {
+		matched := false
+
+		// Exact trigger match (strongest signal)
 		for _, trigger := range sk.Triggers {
-			if token == trigger || containsWord(trigger, token) {
-				score += 2.0
+			if token == trigger {
+				score += 3.0
+				matched = true
+				hits++
 				break
 			}
 		}
+		if matched {
+			continue
+		}
+
+		// Trigger substring match (weak — bigrams overlap)
+		for _, trigger := range sk.Triggers {
+			if containsWord(trigger, token) {
+				score += 0.5
+				matched = true
+				hits++
+				break
+			}
+		}
+		if matched {
+			continue
+		}
+
+		// Description match (weakest — descriptions are long)
 		if containsWord(sk.Description, token) {
-			score += 1.0
+			score += 0.3
+			hits++
+			continue
 		}
+
+		// Name match
 		if containsWord(sk.Name, token) {
-			score += 1.5
+			score += 0.5
+			hits++
 		}
 	}
 
-	// Dependency boost
-	for _, req := range sk.Requires {
-		if mustSet[req] {
-			score *= 1.5
-			break
-		}
-	}
-	for _, rel := range sk.Related {
-		if mustSet[rel] {
-			score *= 1.2
-			break
-		}
-	}
+	return score, hits
+}
 
-	return score
+// Score returns only the score (for compatibility).
+func Score(sk *registry.Skill, tokens []string, _ map[string]bool) float64 {
+	s, _ := ScoreWithHits(sk, tokens)
+	return s
 }
 
 func containsWord(s, word string) bool {
